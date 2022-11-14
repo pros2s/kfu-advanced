@@ -1,12 +1,12 @@
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
+import { ChoseCurrency } from 'entities/choseCurrency';
 
 import cls from './MainPage.module.scss';
 
-const MainPage = memo(() => {
-  const { t } = useTranslation('mainPage');
-
-  return <div className={cls.main}>{t('mainPageText')}</div>;
-});
+const MainPage = memo(() => (
+  <div className={cls.main}>
+    <ChoseCurrency />
+  </div>
+));
 
 export default MainPage;

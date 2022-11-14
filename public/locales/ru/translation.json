@@ -1,20 +1,9 @@
 {
   "Language": "Русский",
-  "mainPageBTN": "ГЛАВНАЯ",
-  "aboutPageBTN": "О НАС",
-  "profilePageBTN": "ПРОФИЛЬ",
-  "LOADING": "загрузка",
-  "COLLAPSE": "Свернуть",
+  "mainPageText": "ГЛАВНАЯ",
   "notFoundPage": "Страница не найдена",
   "pageError": "Что-то пошло не так на этой странице",
-  "ShortLanguage": "Ru",
-  "LogIn": "Войти",
-  "Insert": "Ввод>",
-  "InsertUsername": "Введите имя",
-  "InsertPassword": "Введите пароль",
-  "Form title": "Авторизация",
-  "AuthError": "Неверное имя пользователя или пароль",
-  "Logout": "Выйти",
   "Russia": "Россия",
-  "articlesPageBTN": "СТАТЬИ"
+  "chooseCurrency": "Выберите валюту",
+  "symbolsError": "Ошибка закгрузки списка валют"
 }

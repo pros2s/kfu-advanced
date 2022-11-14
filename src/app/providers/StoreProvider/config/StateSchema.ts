@@ -1,36 +1,39 @@
-// import {
-//   AnyAction,
-//   CombinedState,
-//   EnhancedStore,
-//   Reducer,
-//   ReducersMapObject,
-// } from '@reduxjs/toolkit';
+import {
+  AnyAction,
+  CombinedState,
+  EnhancedStore,
+  Reducer,
+  ReducersMapObject,
+} from '@reduxjs/toolkit';
 
-// import { AxiosInstance } from 'axios';
-// import { NavigateOptions, To } from 'react-router-dom';
+import { AxiosInstance } from 'axios';
+import { ChooseCurrencySchema } from 'entities/choseCurrency';
+import { NavigateOptions, To } from 'react-router-dom';
 
-// export interface StateSchema {}
+export interface StateSchema {
+  chooseCurrency?: ChooseCurrencySchema;
+}
 
-// export type StateSchemaFields = keyof StateSchema;
+export type StateSchemaFields = keyof StateSchema;
 
-// export interface ReducerManager {
-//   getReducerMap: () => ReducersMapObject<StateSchema>;
-//   reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>;
-//   add: (key: StateSchemaFields, reducer: Reducer) => void;
-//   remove: (key: StateSchemaFields) => void;
-// }
+export interface ReducerManager {
+  getReducerMap: () => ReducersMapObject<StateSchema>;
+  reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>;
+  add: (key: StateSchemaFields, reducer: Reducer) => void;
+  remove: (key: StateSchemaFields) => void;
+}
 
-// export interface ReduxStoreWithManger extends EnhancedStore<StateSchema> {
-//   reducerManager: ReducerManager;
-// }
+export interface ReduxStoreWithManger extends EnhancedStore<StateSchema> {
+  reducerManager: ReducerManager;
+}
 
-// export interface ThunkAPI {
-//   api: AxiosInstance;
-//   navigate?: (to: To, options?: NavigateOptions) => void;
-// }
+export interface ThunkAPI {
+  api: AxiosInstance;
+  navigate?: (to: To, options?: NavigateOptions) => void;
+}
 
-// export interface ThunkConfig<T> {
-//   rejectValue: T;
-//   extra: ThunkAPI;
-//   state: StateSchema;
-// }
+export interface ThunkConfig<T> {
+  rejectValue: T;
+  extra: ThunkAPI;
+  state: StateSchema;
+}

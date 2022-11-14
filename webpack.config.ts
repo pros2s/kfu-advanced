@@ -14,7 +14,9 @@ export default (env: BuildEnv) => {
 
   const mode = env.mode || 'development';
   const PORT = env.port || 3000;
-  const baseApiUrl = env.baseApiUrl || 'https://currency-conversion-and-exchange-rates.p.rapidapi.com/timeseries';
+  const baseApiUrl =
+    env.baseApiUrl ||
+    'https://currency-conversion-and-exchange-rates.p.rapidapi.com';
 
   const isDev = mode === 'development';
 

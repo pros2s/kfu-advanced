@@ -7,3 +7,4 @@ export const $api = axios.create({
     'X-RapidAPI-Host': 'currency-conversion-and-exchange-rates.p.rapidapi.com'
   }
 });
+

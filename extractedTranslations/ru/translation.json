@@ -47,6 +47,7 @@
   "aboutPageText": "",
   "articlesPageBTN": "",
   "articlesPageText": "",
+  "chooseCurrency": "",
   "i18n": {
     "t(": ""
   },
@@ -59,6 +60,7 @@
   "pageError": "",
   "profilePageBTN": "",
   "profilePageText": "",
+  "symbolsError": "",
   "{$}": "",
   "{}": "",
   "Ввод": "",
