@@ -4,6 +4,8 @@ import { ChooseCurrencySchema, CurrencyName } from '../types/Currency';
 
 const initialState: ChooseCurrencySchema = {
   errorMessage: '',
+  currentCurrency: { abbr: 'RUB', description: 'Russian Ruble' },
+  isCurMenu: false,
   isLoading: false,
   data: [],
 };
@@ -11,7 +13,14 @@ const initialState: ChooseCurrencySchema = {
 const chooseCurrencySlice = createSlice({
   name: 'chooseCurrency',
   initialState,
-  reducers: {},
+  reducers: {
+    setCurrentCurrency(state, { payload }: PayloadAction<CurrencyName>) {
+      state.currentCurrency = payload;
+    },
+    setIsCurMenu(state, { payload }: PayloadAction<boolean>) {
+      state.isCurMenu = payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchSymbols.pending, (state) => {
@@ -26,13 +35,10 @@ const chooseCurrencySlice = createSlice({
           state.isLoading = false;
         },
       )
-      .addCase(
-        fetchSymbols.rejected,
-        (state, { payload }) => {
-          state.errorMessage = payload;
-          state.isLoading = false;
-        },
-      );
+      .addCase(fetchSymbols.rejected, (state, { payload }) => {
+        state.errorMessage = payload;
+        state.isLoading = false;
+      });
   },
 });
 

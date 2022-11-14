@@ -8,10 +8,12 @@ import {
 
 import { AxiosInstance } from 'axios';
 import { ChooseCurrencySchema } from 'entities/choseCurrency';
+import { SearchCurrencySchema } from 'features/searchCurrency';
 import { NavigateOptions, To } from 'react-router-dom';
 
 export interface StateSchema {
   chooseCurrency?: ChooseCurrencySchema;
+  searchCurrency?: SearchCurrencySchema;
 }
 
 export type StateSchemaFields = keyof StateSchema;

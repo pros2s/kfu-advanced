@@ -10,14 +10,17 @@ import {
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Text, TextAlign, TextThemes } from 'shared/ui/Text/Text';
+import { SearchCurrency } from 'features/SearchCurrency';
+import { CurrencyMenu } from 'features/currencyMenu/ui/CurrencyMenu';
 import { fetchSymbols } from '../model/services/fetchSymbols';
 import {
   getCurrencyErrorMessage,
   getCurrencyIsLoading,
   getCurrencyList,
+  getCurrentCurrency,
+  getIsCurMenu,
 } from '../model/selectors/getChoseCurrency';
 import { ChooseCurrencyReducer } from '../model/slice/choseCurrencySlice';
-
 import cls from './ChoseCurrency.module.scss';
 
 interface ChoseCurrencyProps {
@@ -34,6 +37,8 @@ export const ChoseCurrency = memo(({ className }: ChoseCurrencyProps) => {
   const isLoading = useSelector(getCurrencyIsLoading);
   const errorMessage = useSelector(getCurrencyErrorMessage);
   const currencyList = useSelector(getCurrencyList);
+  const isCurMenu = useSelector(getIsCurMenu);
+  const currentCurrency = useSelector(getCurrentCurrency);
 
   useEffect(() => {
     dispatch(fetchSymbols());
@@ -53,12 +58,11 @@ export const ChoseCurrency = memo(({ className }: ChoseCurrencyProps) => {
   } else {
     element = (
       <>
-        <h1>{t('chooseCurrency')}</h1>
-        {currencyList?.map((cur) => (
-          <p key={cur.abbr + cur.description}>
-            {cur.abbr} - {cur.description}
-          </p>
-        ))}
+        <SearchCurrency
+          currentCurrency={currentCurrency}
+          isCurMenu={isCurMenu}
+        />
+        <CurrencyMenu currencyList={currencyList} isCurMenu={isCurMenu} />
       </>
     );
   }

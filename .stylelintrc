@@ -3,6 +3,7 @@
   "plugins": ["stylelint-scss"],
   "customSyntax": "postcss-scss",
   "rules": {
+    "value-list-comma-newline-after": null,
     "selector-class-pattern": null,
     "function-no-unknown": [
       true,
@@ -20,6 +21,7 @@
       {
         "empty-line-between-groups": true
       }
-    ]
+    ],
+    "declaration-colon-newline-after": null
   }
 }

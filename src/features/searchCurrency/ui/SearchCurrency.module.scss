@@ -1,0 +1,20 @@
+.SearchCurrency {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 220px;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+
+  border-radius: 5px;
+
+  box-shadow: var(--box-shadow);
+}
+
+.button {
+  transition: transform 0.1s linear;
+
+  &.rotate {
+    transform: rotate(180deg);
+  }
+}

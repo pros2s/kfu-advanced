@@ -1,0 +1,70 @@
+.curList {
+  width: 220px;
+  height: 250px;
+  overflow-y: auto;
+
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
+  opacity: 0;
+
+  transition: opacity 0.2s linear;
+
+  pointer-events: none;
+  scrollbar-width: auto;
+  scrollbar-color: #575757;
+
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #8c8c8c;
+    border-radius: 20px;
+  }
+
+  &.shown {
+    opacity: 1;
+
+    pointer-events: auto;
+  }
+}
+
+.curName {
+  display: flex;
+  width: 208px;
+
+  padding: 5px 10px;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  transition: background 0.1s linear;
+
+  span {
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+
+  &:hover {
+    background: var(--hover-color);
+  }
+}
+
+.abbr {
+  color: var(--primary-color);
+}
+
+.description {
+  overflow: hidden;
+
+  color: var(--secondary-color);
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
