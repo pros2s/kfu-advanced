@@ -1,4 +1,4 @@
-.SearchCurrency {
+.searchCurrency {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -17,4 +17,8 @@
   &.rotate {
     transform: rotate(180deg);
   }
+}
+
+.focused {
+  outline: 1px solid;
 }

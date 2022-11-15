@@ -9,7 +9,10 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Button, ButtonSizes, ButtonThemes } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { SearchCurrencyActions } from '../model/slice/searchCurrencySlice';
-import { getSearchCurrencyValue } from '../model/selectors/getSearchCurrency';
+import {
+  getSearchCurrencyValue,
+  getSearchIsFocused,
+} from '../model/selectors/getSearchCurrencyValue';
 
 import cls from './SearchCurrency.module.scss';
 
@@ -21,6 +24,7 @@ interface SearchCurrencyProps {
 export const SearchCurrency = memo(
   ({ currentCurrency, isCurMenu }: SearchCurrencyProps) => {
     const dispatch = useAppDispatch();
+    const isFocused = useSelector(getSearchIsFocused);
 
     const value = useSelector(getSearchCurrencyValue);
 
@@ -31,22 +35,32 @@ export const SearchCurrency = memo(
 
     const onChangeInput = useCallback(
       (val: string) => {
-        dispatch(ChooseCurrencyActions.setIsCurMenu(true));
         dispatch(SearchCurrencyActions.setValue(val));
       },
       [dispatch],
     );
 
+    const onInputClick = () => {
+      dispatch(SearchCurrencyActions.setIsFocused(true));
+      dispatch(ChooseCurrencyActions.setIsCurMenu(true));
+    };
+
     const toggleCurMenu = () => {
+      dispatch(SearchCurrencyActions.setIsFocused(!isFocused));
       dispatch(ChooseCurrencyActions.setIsCurMenu(!isCurMenu));
     };
 
     return (
-      <div className={cls.SearchCurrency}>
+      <div
+        className={classNames(cls.searchCurrency, [], {
+          [cls.focused]: isFocused,
+        })}
+      >
         <Input
           placeholder={placeholder}
           value={value}
           onChange={onChangeInput}
+          onClick={onInputClick}
         />
         <Button
           className={classNames(cls.button, [], { [cls.rotate]: isCurMenu })}

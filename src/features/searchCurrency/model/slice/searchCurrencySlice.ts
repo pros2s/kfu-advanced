@@ -3,6 +3,7 @@ import { SearchCurrencySchema } from '../types/SearchCurrencySchema';
 
 const initialState: SearchCurrencySchema = {
   value: '',
+  isFocused: false,
 };
 
 const searchCurrencySlice = createSlice({
@@ -11,6 +12,9 @@ const searchCurrencySlice = createSlice({
   reducers: {
     setValue(state, { payload }: PayloadAction<string>) {
       state.value = payload;
+    },
+    setIsFocused(state, { payload }: PayloadAction<boolean>) {
+      state.isFocused = payload;
     },
   },
 });

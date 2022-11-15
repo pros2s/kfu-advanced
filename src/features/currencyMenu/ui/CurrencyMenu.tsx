@@ -1,5 +1,8 @@
 import { ChooseCurrencyActions, CurrencyName } from 'entities/choseCurrency';
-import { memo } from 'react';
+import { getSearchCurrencyValue, SearchCurrencyActions } from 'features/SearchCurrency';
+import Fuse from 'fuse.js';
+import { memo, useMemo } from 'react';
+import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Button, ButtonThemes } from 'shared/ui/Button/Button';
@@ -14,20 +17,34 @@ interface CurrencyMenuProps {
 export const CurrencyMenu = memo(
   ({ currencyList, isCurMenu }: CurrencyMenuProps) => {
     const dispatch = useAppDispatch();
+    const searchValue = useSelector(getSearchCurrencyValue);
 
     const setNewCurrency = (currency: CurrencyName) => {
       dispatch(ChooseCurrencyActions.setCurrentCurrency(currency));
       dispatch(ChooseCurrencyActions.setIsCurMenu(false));
+      dispatch(SearchCurrencyActions.setIsFocused(false));
     };
+
+    const searchedCurrency = useMemo(() => {
+      if (currencyList && searchValue) {
+        const fuse = new Fuse(currencyList, {
+          keys: ['abbr', 'description'],
+        });
+
+        return fuse.search(searchValue).map((res) => res.item);
+      }
+      return currencyList;
+    }, [currencyList, searchValue]);
 
     return (
       <div className={classNames(cls.curList, [], { [cls.shown]: isCurMenu })}>
-        {currencyList?.map((cur) => (
+        {searchedCurrency?.map((cur) => (
           <Button
             className={cls.curName}
             key={cur.abbr + cur.description}
             onClick={() => setNewCurrency(cur)}
             theme={ButtonThemes.CLEAR}
+            tabIndex={0}
           >
             <p className={cls.abbr}>{cur.abbr}</p>
             <span>-</span>

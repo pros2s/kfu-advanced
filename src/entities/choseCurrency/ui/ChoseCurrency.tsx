@@ -10,9 +10,11 @@ import {
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Text, TextAlign, TextThemes } from 'shared/ui/Text/Text';
-import { SearchCurrency } from 'features/SearchCurrency';
+import { SearchCurrency, SearchCurrencyReducer } from 'features/SearchCurrency';
 import { CurrencyMenu } from 'features/currencyMenu/ui/CurrencyMenu';
+
 import { fetchSymbols } from '../model/services/fetchSymbols';
+
 import {
   getCurrencyErrorMessage,
   getCurrencyIsLoading,
@@ -29,6 +31,7 @@ interface ChoseCurrencyProps {
 
 const reducers: ReducersList = {
   chooseCurrency: ChooseCurrencyReducer,
+  searchCurrency: SearchCurrencyReducer,
 };
 
 export const ChoseCurrency = memo(({ className }: ChoseCurrencyProps) => {
