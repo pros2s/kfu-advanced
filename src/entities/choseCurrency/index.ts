@@ -1,14 +1,12 @@
+export { ChoseCurrencySchema, CurrencyName } from './model/types/Currency';
+export { ChoseToCurrency } from './ui/ChoseToCurrency';
 export {
-  ChooseCurrencyActions,
-  ChooseCurrencyReducer,
-} from './model/slice/choseCurrencySlice';
+  ChoseToCurrencyActions,
+  ChoseToCurrencyReducer,
+} from './model/slice/ChoseToCurrencySlice';
 
-export { ChooseCurrencySchema, CurrencyName } from './model/types/Currency';
-export { ChoseCurrency } from './ui/ChoseCurrency';
+export { ChoseFromCurrency } from './ui/ChoseFromCurrency';
 export {
-  getCurrencyErrorMessage,
-  getCurrencyIsLoading,
-  getCurrencyList,
-  getCurrentCurrency,
-  getIsCurMenu,
-} from './model/selectors/getChoseCurrency';
+  ChoseFromCurrencyActions,
+  ChoseFromCurrencyReducer,
+} from './model/slice/ChoseFromCurrencySlice';

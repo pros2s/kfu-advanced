@@ -1,5 +1,8 @@
-import { ChooseCurrencyActions, CurrencyName } from 'entities/choseCurrency';
-import { getSearchCurrencyValue, SearchCurrencyActions } from 'features/SearchCurrency';
+import { ChoseToCurrencyActions, CurrencyName } from 'entities/choseCurrency';
+import {
+  getSearchToCurrencyValue,
+  SearchToCurrencyActions,
+} from 'features/searchCurrency';
 import Fuse from 'fuse.js';
 import { memo, useMemo } from 'react';
 import { useSelector } from 'react-redux';
@@ -14,15 +17,16 @@ interface CurrencyMenuProps {
   isCurMenu?: boolean;
 }
 
-export const CurrencyMenu = memo(
+export const CurrencyToMenu = memo(
   ({ currencyList, isCurMenu }: CurrencyMenuProps) => {
     const dispatch = useAppDispatch();
-    const searchValue = useSelector(getSearchCurrencyValue);
+    const searchValue = useSelector(getSearchToCurrencyValue);
 
     const setNewCurrency = (currency: CurrencyName) => {
-      dispatch(ChooseCurrencyActions.setCurrentCurrency(currency));
-      dispatch(ChooseCurrencyActions.setIsCurMenu(false));
-      dispatch(SearchCurrencyActions.setIsFocused(false));
+      dispatch(ChoseToCurrencyActions.setToCurrentCurrency(currency));
+      dispatch(ChoseToCurrencyActions.setIsToCurMenu(false));
+      dispatch(SearchToCurrencyActions.setToIsFocused(false));
+      dispatch(SearchToCurrencyActions.setToValue(''));
     };
 
     const searchedCurrency = useMemo(() => {

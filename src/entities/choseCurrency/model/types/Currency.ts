@@ -3,10 +3,7 @@ export interface CurrencyName {
   description: string;
 }
 
-export interface ChooseCurrencySchema {
-  errorMessage?: string;
-  isLoading: boolean;
+export interface ChoseCurrencySchema {
   isCurMenu: boolean;
   currentCurrency: CurrencyName;
-  data: CurrencyName[];
 }

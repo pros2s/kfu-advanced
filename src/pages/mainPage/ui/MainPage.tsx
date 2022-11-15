@@ -1,11 +1,11 @@
 import { memo } from 'react';
-import { ChoseCurrency } from 'entities/choseCurrency';
+import { CurrencyConverter } from 'widgets/CurrencyConverter';
 
 import cls from './MainPage.module.scss';
 
 const MainPage = memo(() => (
   <div className={cls.main}>
-    <ChoseCurrency />
+    <CurrencyConverter />
   </div>
 ));
 

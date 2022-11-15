@@ -7,13 +7,17 @@ import {
 } from '@reduxjs/toolkit';
 
 import { AxiosInstance } from 'axios';
-import { ChooseCurrencySchema } from 'entities/choseCurrency';
+import { ChoseCurrencySchema } from 'entities/choseCurrency';
 import { SearchCurrencySchema } from 'features/searchCurrency';
 import { NavigateOptions, To } from 'react-router-dom';
+import { CurrencyConverterSchema } from 'widgets/CurrencyConverter';
 
 export interface StateSchema {
-  chooseCurrency?: ChooseCurrencySchema;
-  searchCurrency?: SearchCurrencySchema;
+  currencyConverter?: CurrencyConverterSchema;
+  searchFromCurrency?: SearchCurrencySchema;
+  searchToCurrency?: SearchCurrencySchema;
+  choseFromCurrency?: ChoseCurrencySchema;
+  choseToCurrency?: ChoseCurrencySchema;
 }
 
 export type StateSchemaFields = keyof StateSchema;

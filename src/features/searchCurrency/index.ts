@@ -1,7 +1,14 @@
-export { SearchCurrency } from './ui/SearchCurrency';
 export { SearchCurrencySchema } from './model/types/SearchCurrencySchema';
-export { getSearchCurrencyValue } from './model/selectors/getSearchCurrencyValue';
+export { getSearchToCurrencyValue } from './model/selectors/getSearchToCurrency';
 export {
-  SearchCurrencyActions,
-  SearchCurrencyReducer,
-} from './model/slice/searchCurrencySlice';
+  SearchToCurrencyActions,
+  SearchToCurrencyReducer,
+} from './model/slice/SearchToCurrencySlice';
+export { SearchToCurrency } from './ui/SearchToCurrency';
+
+export { getSearchFromCurrencyValue } from './model/selectors/getSearchFromCurrency';
+export {
+  SearchFromCurrencyActions,
+  SearchFromCurrencyReducer,
+} from './model/slice/SearchFromCurrencySlice';
+export { SearchFromCurrency } from './ui/SearchFromCurrency';

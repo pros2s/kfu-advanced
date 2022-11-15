@@ -45,9 +45,11 @@
   "Your text": "",
   "aboutPageBTN": "",
   "aboutPageText": "",
+  "amount": "",
   "articlesPageBTN": "",
   "articlesPageText": "",
   "chooseCurrency": "",
+  "from": "",
   "i18n": {
     "t(": ""
   },
@@ -61,6 +63,7 @@
   "profilePageBTN": "",
   "profilePageText": "",
   "symbolsError": "",
+  "to": "",
   "{$}": "",
   "{}": "",
   "Ввод": "",
