@@ -8,7 +8,5 @@ export const getConverterIsLoading = (state: StateSchema) =>
   state.currencyConverter?.isLoading;
 export const getConverterInputValue = (state: StateSchema) =>
   state.currencyConverter?.inputValue;
-export const getConverterResult = (state: StateSchema) =>
-  state.currencyConverter?.convertResult;
-export const getConverterCurrentRate = (state: StateSchema) =>
-  state.currencyConverter?.currentRate;
+export const getConverterRate = (state: StateSchema) =>
+  state.currencyConverter?.rateResult;

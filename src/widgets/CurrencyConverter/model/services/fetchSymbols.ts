@@ -8,13 +8,13 @@ export const fetchSymbols = createAsyncThunk<
   ThunkConfig<string>
 >('currencyConverter/fetchSymbols', async (_, { rejectWithValue, extra }) => {
   try {
-    const response = await extra.api.get('/symbols');
+    const response = await extra.api.get('/latest/currencies.min.json');
 
     if (!response.data) {
       throw new Error();
     }
 
-    return Object.entries(response.data.symbols).map(
+    return Object.entries(response.data).map(
       (arr): CurrencyName => ({
         abbr: arr[0],
         description: arr[1] as string,

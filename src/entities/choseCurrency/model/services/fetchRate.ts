@@ -1,27 +1,24 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
-import {
-  ConvertParams,
-  ConvertResult,
-} from 'widgets/CurrencyConverter/model/types/ConvertResult';
+import { ConvertParams } from 'widgets/CurrencyConverter/model/types/ConvertResult';
 
-export const currentRate = createAsyncThunk<
-  ConvertResult,
+export const fetchRate = createAsyncThunk<
+  number,
   ConvertParams,
   ThunkConfig<string>
 >(
-  'currencyConverter/currentRate',
+  'currencyConverter/fetchRate',
   async ({ from, to }, { rejectWithValue, extra }) => {
     try {
-      const response = await extra.api.get('/convert', {
-        params: { from, to, amount: '1' },
-      });
+      const response = await extra.api.get(
+        `/latest/currencies/${from}/${to}.min.json`,
+      );
 
       if (!response.data) {
         throw new Error();
       }
 
-      return response.data;
+      return Number(Object.values(response.data)[1]);
     } catch (e) {
       return rejectWithValue('error');
     }

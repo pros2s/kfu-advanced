@@ -40,7 +40,10 @@ export const SearchToCurrency = memo(
     const value = useSelector(getSearchToCurrencyValue);
 
     const placeholder = useMemo(
-      () => `${currentCurrency?.abbr} - ${currentCurrency?.description}`,
+      () =>
+        `${currentCurrency?.abbr.toUpperCase()} - ${
+          currentCurrency?.description
+        }`,
       [currentCurrency?.abbr, currentCurrency?.description],
     );
 

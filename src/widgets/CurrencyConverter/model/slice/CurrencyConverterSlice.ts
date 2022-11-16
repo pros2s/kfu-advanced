@@ -1,16 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { CurrencyName } from 'entities/choseCurrency';
-import { convert } from 'entities/choseCurrency/model/services/convert';
-import { currentRate } from 'entities/choseCurrency/model/services/currentRate';
+import { fetchRate } from 'entities/choseCurrency/model/services/fetchRate';
 import { fetchSymbols } from 'widgets/CurrencyConverter/model/services/fetchSymbols';
-import { ConvertResult } from 'widgets/CurrencyConverter/model/types/ConvertResult';
 import { CurrencyConverterSchema } from '../types/CurrencyConverterSchema';
 
 const initialState: CurrencyConverterSchema = {
   data: [],
   inputValue: '1.00',
-  convertResult: undefined,
-  currentRate: undefined,
+  rateResult: undefined,
   isLoading: false,
   errorMessage: '',
 };
@@ -41,38 +38,38 @@ const currencyConverterSlice = createSlice({
         state.errorMessage = payload;
         state.isLoading = false;
       })
-      .addCase(convert.pending, (state) => {
+      .addCase(fetchRate.pending, (state) => {
         state.errorMessage = '';
         state.isLoading = true;
       })
       .addCase(
-        convert.fulfilled,
-        (state, { payload }: PayloadAction<ConvertResult>) => {
-          state.convertResult = payload;
+        fetchRate.fulfilled,
+        (state, { payload }: PayloadAction<number>) => {
+          state.rateResult = payload;
           state.errorMessage = '';
           state.isLoading = false;
         },
       )
-      .addCase(convert.rejected, (state, { payload }) => {
+      .addCase(fetchRate.rejected, (state, { payload }) => {
         state.errorMessage = payload;
         state.isLoading = false;
       })
-      .addCase(currentRate.pending, (state) => {
-        state.errorMessage = '';
-        state.isLoading = true;
-      })
-      .addCase(
-        currentRate.fulfilled,
-        (state, { payload }: PayloadAction<ConvertResult>) => {
-          state.currentRate = payload;
-          state.errorMessage = '';
-          state.isLoading = false;
-        },
-      )
-      .addCase(currentRate.rejected, (state, { payload }) => {
-        state.errorMessage = payload;
-        state.isLoading = false;
-      });
+      // .addCase(currentRate.pending, (state) => {
+      //   state.errorMessage = '';
+      //   state.isLoading = true;
+      // })
+      // .addCase(
+      //   currentRate.fulfilled,
+      //   (state, { payload }: PayloadAction<ConvertResult>) => {
+      //     state.currentRate = payload;
+      //     state.errorMessage = '';
+      //     state.isLoading = false;
+      //   },
+      // )
+      // .addCase(currentRate.rejected, (state, { payload }) => {
+      //   state.errorMessage = payload;
+      //   state.isLoading = false;
+      // });
   },
 });
 

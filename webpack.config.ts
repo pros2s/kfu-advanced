@@ -15,8 +15,7 @@ export default (env: BuildEnv) => {
   const mode = env.mode || 'development';
   const PORT = env.port || 3000;
   const baseApiUrl =
-    env.baseApiUrl ||
-    'https://currency-conversion-and-exchange-rates.p.rapidapi.com';
+    env.baseApiUrl || 'https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1';
 
   const isDev = mode === 'development';
 

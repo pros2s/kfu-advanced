@@ -1,7 +1,4 @@
-import {
-  ChoseFromCurrencyActions,
-  CurrencyName,
-} from 'entities/choseCurrency';
+import { ChoseFromCurrencyActions, CurrencyName } from 'entities/choseCurrency';
 
 import { memo, useCallback, useMemo } from 'react';
 import { BsCaretDownFill } from 'react-icons/bs';
@@ -43,7 +40,10 @@ export const SearchFromCurrency = memo(
     const value = useSelector(getSearchFromCurrencyValue);
 
     const placeholder = useMemo(
-      () => `${currentCurrency?.abbr} - ${currentCurrency?.description}`,
+      () =>
+        `${currentCurrency?.abbr.toUpperCase()} - ${
+          currentCurrency?.description
+        }`,
       [currentCurrency?.abbr, currentCurrency?.description],
     );
 
