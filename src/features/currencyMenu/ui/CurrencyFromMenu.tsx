@@ -1,4 +1,10 @@
-import { ChoseFromCurrencyActions, CurrencyName } from 'entities/choseCurrency';
+import {
+  ChoseFromCurrencyActions,
+  convert,
+  CurrencyName,
+  getFromCurrentCurrency,
+  getToCurrentCurrency,
+} from 'entities/choseCurrency';
 import {
   getSearchFromCurrencyValue,
   SearchFromCurrencyActions,
@@ -10,6 +16,7 @@ import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Button, ButtonThemes } from 'shared/ui/Button/Button';
+import { getConverterInputValue } from 'widgets/CurrencyConverter/model/selectors/getAllCurrencyConverter';
 
 import cls from './CurrencyMenu.module.scss';
 
@@ -22,12 +29,23 @@ export const CurrencyFromMenu = memo(
   ({ currencyList, isCurMenu }: CurrencyMenuProps) => {
     const dispatch = useAppDispatch();
     const searchValue = useSelector(getSearchFromCurrencyValue);
+    const inputValue = useSelector(getConverterInputValue);
+
+    const toCurrentCur = useSelector(getToCurrentCurrency);
+    const fromCurrentCur = useSelector(getFromCurrentCurrency);
 
     const setNewCurrency = (currency: CurrencyName) => {
       dispatch(ChoseFromCurrencyActions.setFromCurrentCurrency(currency));
       dispatch(ChoseFromCurrencyActions.setIsFromCurMenu(false));
       dispatch(SearchFromCurrencyActions.setFromIsFocused(false));
       dispatch(SearchFromCurrencyActions.setFromValue(''));
+      dispatch(
+        convert({
+          amount: inputValue,
+          from: fromCurrentCur?.abbr,
+          to: toCurrentCur?.abbr,
+        }),
+      );
     };
 
     const searchedCurrency = useMemo(() => {

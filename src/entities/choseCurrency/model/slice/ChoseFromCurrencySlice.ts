@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ChoseCurrencySchema, CurrencyName } from '../types/Currency';
 
 const initialState: ChoseCurrencySchema = {
-  currentCurrency: { abbr: 'RUB', description: 'Russian Ruble' },
+  currentCurrency: { abbr: 'USD', description: 'United States Dollar' },
   isCurMenu: false,
 };
 

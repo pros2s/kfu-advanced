@@ -1,6 +1,8 @@
 .curList {
+  position: absolute;
+
   width: 220px;
-  height: 250px;
+  height: 0;
   overflow-y: auto;
 
   background: rgb(45 45 45);
@@ -9,7 +11,7 @@
   box-shadow: var(--box-shadow);
   opacity: 0;
 
-  transition: opacity 0.2s linear;
+  transition: all 0.2s linear;
 
   pointer-events: none;
   scrollbar-width: auto;
@@ -29,6 +31,8 @@
   }
 
   &.shown {
+    height: 250px;
+
     opacity: 1;
 
     pointer-events: auto;

@@ -6,7 +6,7 @@ export const fetchSymbols = createAsyncThunk<
   CurrencyName[],
   void,
   ThunkConfig<string>
->('profile/fetchSymbols', async (_, { rejectWithValue, extra }) => {
+>('currencyConverter/fetchSymbols', async (_, { rejectWithValue, extra }) => {
   try {
     const response = await extra.api.get('/symbols');
 

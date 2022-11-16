@@ -10,3 +10,7 @@ export {
   ChoseFromCurrencyActions,
   ChoseFromCurrencyReducer,
 } from './model/slice/ChoseFromCurrencySlice';
+
+export { convert } from './model/services/convert';
+export { getToCurrentCurrency } from './model/selectors/getAllToCurrency';
+export { getFromCurrentCurrency } from './model/selectors/getAllFromCurrency';

@@ -4,13 +4,14 @@ import './Loader.scss';
 
 interface LoaderProps {
   size?: string;
+  borderWidth?: string;
 }
 
-export const Loader = memo(({ size }: LoaderProps) => (
-  <div style={{ height: size, width: size }} className='lds-ring'>
-    <div style={{ height: size, width: size }} />
-    <div style={{ height: size, width: size }} />
-    <div style={{ height: size, width: size }} />
-    <div style={{ height: size, width: size }} />
+export const Loader = memo(({ size, borderWidth }: LoaderProps) => (
+  <div style={{ height: size, width: size, borderWidth }} className='lds-ring'>
+    <div style={{ height: size, width: size, borderWidth }} />
+    <div style={{ height: size, width: size, borderWidth }} />
+    <div style={{ height: size, width: size, borderWidth }} />
+    <div style={{ height: size, width: size, borderWidth }} />
   </div>
 ));

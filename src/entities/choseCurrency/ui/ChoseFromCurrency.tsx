@@ -8,7 +8,6 @@ import {
 import { SearchFromCurrency } from 'features/searchCurrency';
 import { CurrencyFromMenu } from 'features/currencyMenu';
 import { ChoseFromCurrencyReducer } from '../model/slice/ChoseFromCurrencySlice';
-import cls from './ChoseCurrency.module.scss';
 import {
   getFromCurrentCurrency,
   getIsFromCurMenu,
@@ -30,13 +29,11 @@ export const ChoseFromCurrency = memo(
 
     return (
       <DynamicReducerLoader removeAfterUnmount reducers={reducers}>
-        <div className={cls.ChoseCurrency}>
-          <SearchFromCurrency
-            currentCurrency={currentCurrency}
-            isCurMenu={isCurMenu}
-          />
-          <CurrencyFromMenu currencyList={currencyList} isCurMenu={isCurMenu} />
-        </div>
+        <SearchFromCurrency
+          currentCurrency={currentCurrency}
+          isCurMenu={isCurMenu}
+        />
+        <CurrencyFromMenu currencyList={currencyList} isCurMenu={isCurMenu} />
       </DynamicReducerLoader>
     );
   },

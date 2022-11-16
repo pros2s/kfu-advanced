@@ -7,7 +7,6 @@ import {
 } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { SearchToCurrency } from 'features/searchCurrency';
 import { CurrencyToMenu } from 'features/currencyMenu';
-import cls from './ChoseCurrency.module.scss';
 import { CurrencyName } from '../model/types/Currency';
 import {
   getToCurrentCurrency,
@@ -30,13 +29,11 @@ export const ChoseToCurrency = memo(
 
     return (
       <DynamicReducerLoader removeAfterUnmount reducers={reducers}>
-        <div className={cls.ChoseCurrency}>
-          <SearchToCurrency
-            currentCurrency={currentCurrency}
-            isCurMenu={isCurMenu}
-          />
-          <CurrencyToMenu currencyList={currencyList} isCurMenu={isCurMenu} />
-        </div>
+        <SearchToCurrency
+          currentCurrency={currentCurrency}
+          isCurMenu={isCurMenu}
+        />
+        <CurrencyToMenu currencyList={currencyList} isCurMenu={isCurMenu} />
       </DynamicReducerLoader>
     );
   },

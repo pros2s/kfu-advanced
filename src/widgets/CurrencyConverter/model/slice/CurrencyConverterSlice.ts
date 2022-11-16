@@ -1,10 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { CurrencyName } from 'entities/choseCurrency';
+import { convert } from 'entities/choseCurrency/model/services/convert';
 import { fetchSymbols } from 'widgets/CurrencyConverter/model/services/fetchSymbols';
+import { ConvertResult } from 'widgets/CurrencyConverter/model/types/ConvertResult';
 import { CurrencyConverterSchema } from '../types/CurrencyConverterSchema';
 
 const initialState: CurrencyConverterSchema = {
   data: [],
+  inputValue: '1.00',
+  convertResult: undefined,
   isLoading: false,
   errorMessage: '',
 };
@@ -12,7 +16,11 @@ const initialState: CurrencyConverterSchema = {
 const currencyConverterSlice = createSlice({
   name: 'currencyConverter',
   initialState,
-  reducers: {},
+  reducers: {
+    setInputValue(state, { payload }: PayloadAction<string>) {
+      state.inputValue = payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchSymbols.pending, (state) => {
@@ -28,6 +36,22 @@ const currencyConverterSlice = createSlice({
         },
       )
       .addCase(fetchSymbols.rejected, (state, { payload }) => {
+        state.errorMessage = payload;
+        state.isLoading = false;
+      })
+      .addCase(convert.pending, (state) => {
+        state.errorMessage = '';
+        state.isLoading = true;
+      })
+      .addCase(
+        convert.fulfilled,
+        (state, { payload }: PayloadAction<ConvertResult>) => {
+          state.convertResult = payload;
+          state.errorMessage = '';
+          state.isLoading = false;
+        },
+      )
+      .addCase(convert.rejected, (state, { payload }) => {
         state.errorMessage = payload;
         state.isLoading = false;
       });
