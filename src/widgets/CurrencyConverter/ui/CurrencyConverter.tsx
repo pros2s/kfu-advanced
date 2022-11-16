@@ -22,7 +22,9 @@ import { Loader } from 'shared/ui/Loader/Loader';
 import { Text, TextAlign, TextThemes } from 'shared/ui/Text/Text';
 import { getToCurrentCurrency } from 'entities/choseCurrency/model/selectors/getAllToCurrency';
 import { getFromCurrentCurrency } from 'entities/choseCurrency/model/selectors/getAllFromCurrency';
+import { currentRate } from 'entities/choseCurrency/model/services/currentRate';
 import {
+  getConverterCurrentRate,
   getConverterError,
   getConverterInputValue,
   getConverterIsLoading,
@@ -59,6 +61,7 @@ export const CurrencyConverter = memo(
     const toCurrentCur = useSelector(getToCurrentCurrency);
     const fromCurrentCur = useSelector(getFromCurrentCurrency);
     const result = useSelector(getConverterResult);
+    const curRate = useSelector(getConverterCurrentRate);
 
     const inputChange = useCallback(
       (event: KeyboardEvent<HTMLInputElement>) => {
@@ -70,13 +73,21 @@ export const CurrencyConverter = memo(
     );
 
     const onConvert = useCallback(() => {
-      dispatch(
-        convert({
-          amount: inputValue,
-          from: fromCurrentCur?.abbr,
-          to: toCurrentCur?.abbr,
-        }),
-      );
+      if (inputValue !== '') {
+        dispatch(
+          convert({
+            amount: inputValue,
+            from: fromCurrentCur?.abbr,
+            to: toCurrentCur?.abbr,
+          }),
+        );
+        dispatch(
+          currentRate({
+            from: fromCurrentCur?.abbr,
+            to: toCurrentCur?.abbr,
+          }),
+        );
+      }
     }, [dispatch, fromCurrentCur?.abbr, inputValue, toCurrentCur?.abbr]);
 
     useEffect(() => {
@@ -135,8 +146,9 @@ export const CurrencyConverter = memo(
           </div>
 
           <div className={cls.result}>
-            <Button theme={ButtonThemes.INVERTED_CLEAR} onClick={onConvert} />
-            <h1>{result?.result}</h1>
+            <h3>{`${inputValue} ${fromCurrentCur?.description}s =`}</h3>
+            <h1>{`${result?.result?.toFixed(2)} ${toCurrentCur?.description}s`}</h1>
+            <p>{`1.00 ${fromCurrentCur?.abbr} = ${curRate?.result?.toFixed(2)} ${toCurrentCur?.abbr}`}</p>
           </div>
         </div>
       );

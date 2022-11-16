@@ -5,16 +5,16 @@ import {
   ConvertResult,
 } from 'widgets/CurrencyConverter/model/types/ConvertResult';
 
-export const convert = createAsyncThunk<
+export const currentRate = createAsyncThunk<
   ConvertResult,
   ConvertParams,
   ThunkConfig<string>
 >(
-  'currencyConverter/convert',
-  async ({ amount, from, to }, { rejectWithValue, extra }) => {
+  'currencyConverter/currentRate',
+  async ({ from, to }, { rejectWithValue, extra }) => {
     try {
       const response = await extra.api.get('/convert', {
-        params: { from, to, amount },
+        params: { from, to, amount: '1' },
       });
 
       if (!response.data) {

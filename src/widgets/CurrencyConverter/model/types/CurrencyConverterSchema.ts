@@ -5,6 +5,7 @@ export interface CurrencyConverterSchema {
   inputValue?: string;
   errorMessage?: string;
   convertResult?: ConvertResult;
+  currentRate?: ConvertResult;
   isLoading: boolean;
   data: CurrencyName[];
 }
