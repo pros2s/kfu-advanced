@@ -1,13 +1,10 @@
 {
-  "Language": "English",
-  "mainPageText": "MAIN",
+  "Language": "Eng",
   "notFoundPage": "Not Found Page",
   "pageError": "Something wrong with this page",
-  "Russia": "Russia",
   "chooseCurrency": "Choose currency",
   "symbolsError": "Error with symbols loading",
-  "amount": "Amount",
-  "from": "From",
-  "to": "To",
-  "convert": "Convert"
+  "convert": "Convert",
+  "fromCurrency": "From",
+  "toCurrency": "To"
 }

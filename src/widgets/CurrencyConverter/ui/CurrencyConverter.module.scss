@@ -1,7 +1,8 @@
 .CurrencyConverter {
-  min-height: 400px;
+  min-height: 200px;
+  margin: 0 auto;
 
-  background-color: #292929;
+  background-color: var(--inner-bg-color);
   border-radius: 5px;
   box-shadow: var(--box-shadow);
 }
@@ -48,8 +49,9 @@
   align-items: center;
   justify-content: center;
   height: 30px;
+  margin-top: 30px;
 
-  color: rgb(169 169 169);
+  color: var(--secondary-color);
 
   transition: all 0.2s linear;
 
@@ -63,6 +65,12 @@
   }
 }
 
+.label {
+  margin-bottom: 5px;
+
+  font: var(--font-m);
+}
+
 .result {
   margin-top: 20px;
 
@@ -73,6 +81,9 @@
   }
 
   p {
+    margin-top: 3px;
+
     color: #767676;
+    font: var(--font-s);
   }
 }

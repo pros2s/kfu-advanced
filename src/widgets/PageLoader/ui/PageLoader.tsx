@@ -11,6 +11,6 @@ interface PageLoaderProps {
 
 export const PageLoader = memo(({ className }: PageLoaderProps) => (
   <div className={classNames(cls.PageLoader, [className])}>
-    <Loader />
+    <Loader size='100px' />
   </div>
 ));

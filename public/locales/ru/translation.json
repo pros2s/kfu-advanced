@@ -1,13 +1,10 @@
 {
-  "Language": "Русский",
-  "mainPageText": "ГЛАВНАЯ",
+  "Language": "Рус",
   "notFoundPage": "Страница не найдена",
   "pageError": "Что-то пошло не так на этой странице",
-  "Russia": "Россия",
   "chooseCurrency": "Выберите валюту",
   "symbolsError": "Ошибка закгрузки списка валют",
-  "amount": "Сумма",
-  "from": "С",
-  "to": "К ",
-  "convert": "Конвертировать"
+  "convert": "Конвертировать",
+  "fromCurrency": "С валюты",
+  "toCurrency": "В валюту"
 }

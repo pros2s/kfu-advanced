@@ -29,7 +29,16 @@ const currencyConverterSlice = createSlice({
       .addCase(
         fetchSymbols.fulfilled,
         (state, { payload }: PayloadAction<CurrencyName[]>) => {
-          state.data = payload;
+          state.data = payload.sort((elem) => {
+            if (
+              elem.abbr === 'rub' ||
+              elem.abbr === 'usd' ||
+              elem.abbr === 'gbp'
+            ) {
+              return -1;
+            }
+            return 1;
+          });
           state.errorMessage = '';
           state.isLoading = false;
         },
@@ -53,23 +62,23 @@ const currencyConverterSlice = createSlice({
       .addCase(fetchRate.rejected, (state, { payload }) => {
         state.errorMessage = payload;
         state.isLoading = false;
-      })
-      // .addCase(currentRate.pending, (state) => {
-      //   state.errorMessage = '';
-      //   state.isLoading = true;
-      // })
-      // .addCase(
-      //   currentRate.fulfilled,
-      //   (state, { payload }: PayloadAction<ConvertResult>) => {
-      //     state.currentRate = payload;
-      //     state.errorMessage = '';
-      //     state.isLoading = false;
-      //   },
-      // )
-      // .addCase(currentRate.rejected, (state, { payload }) => {
-      //   state.errorMessage = payload;
-      //   state.isLoading = false;
-      // });
+      });
+    // .addCase(currentRate.pending, (state) => {
+    //   state.errorMessage = '';
+    //   state.isLoading = true;
+    // })
+    // .addCase(
+    //   currentRate.fulfilled,
+    //   (state, { payload }: PayloadAction<ConvertResult>) => {
+    //     state.currentRate = payload;
+    //     state.errorMessage = '';
+    //     state.isLoading = false;
+    //   },
+    // )
+    // .addCase(currentRate.rejected, (state, { payload }) => {
+    //   state.errorMessage = payload;
+    //   state.isLoading = false;
+    // });
   },
 });
 

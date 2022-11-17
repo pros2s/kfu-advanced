@@ -52,7 +52,7 @@ export const CurrencyConverter = memo(() => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
 
-  const [result, setResult] = useState(0);
+  const [result, setResult] = useState<number>(0);
 
   const currencyList = useSelector(getCurrencyList);
   const errorMessage = useSelector(getConverterError);
@@ -96,7 +96,7 @@ export const CurrencyConverter = memo(() => {
     [dispatch],
   );
 
-  const exchange = useCallback(() => {
+  const onExchange = useCallback(() => {
     dispatch(ChoseToCurrencyActions.setToCurrentCurrency(fromCurrentCur!));
     dispatch(ChoseFromCurrencyActions.setFromCurrentCurrency(toCurrentCur!));
     onConvert();
@@ -115,26 +115,31 @@ export const CurrencyConverter = memo(() => {
     element = (
       <div className={cls.inner}>
         <div className={cls.tools}>
-          <div className={cls.input}>
-            <Input
-              placeholder={t('amount')}
-              value={inputValue}
-              onChange={onChangeInput}
-              onKeyPress={inputChange}
-            />
-            {isLoading && <Loader size='20px' borderWidth='4px' />}
+          <div>
+            <h3 className={cls.label}>{t('convert')}</h3>
+            <div className={cls.input}>
+              <Input
+                placeholder={t('amount')}
+                value={inputValue}
+                onChange={onChangeInput}
+                onKeyPress={inputChange}
+              />
+              {isLoading && <Loader size='20px' borderWidth='4px' />}
+            </div>
           </div>
           <div className={cls.from}>
+            <h3 className={cls.label}>{t('fromCurrency')}</h3>
             <ChoseFromCurrency currencyList={currencyList} />
           </div>
           <Button
             className={cls.exchange}
             theme={ButtonThemes.CLEAR}
-            onClick={exchange}
+            onClick={onExchange}
           >
             <CgArrowsExchange />
           </Button>
           <div className={cls.to}>
+            <h3 className={cls.label}>{t('toCurrency')}</h3>
             <ChoseToCurrency currencyList={currencyList} />
           </div>
         </div>
@@ -142,9 +147,9 @@ export const CurrencyConverter = memo(() => {
         <div className={cls.result}>
           <h3>{`${inputValue} ${fromCurrentCur?.description}s =`}</h3>
           <h1>{`${result.toFixed(2)} ${toCurrentCur?.description}s`}</h1>
-          <p>{`1.00 ${fromCurrentCur?.abbr.toUpperCase()} = ${result.toFixed(2)} ${
-            toCurrentCur?.abbr.toUpperCase()
-          }`}</p>
+          <p>{`1.00 ${fromCurrentCur?.abbr.toUpperCase()} = ${result.toFixed(
+            2,
+          )} ${toCurrentCur?.abbr.toUpperCase()}`}</p>
         </div>
       </div>
     );

@@ -3,6 +3,7 @@
   "ArticleDetailsPageText": "",
   "Auth": "",
   "AuthError": "",
+  "C": "",
   "COLLAPSE": "",
   "Can": "",
   "Cancel": "",
@@ -51,6 +52,7 @@
   "chooseCurrency": "",
   "convert": "",
   "from": "",
+  "fromCurrency": "",
   "i18n": {
     "t(": ""
   },
@@ -65,6 +67,7 @@
   "profilePageText": "",
   "symbolsError": "",
   "to": "",
+  "toCurrency": "",
   "{$}": "",
   "{}": "",
   "Ввод": "",

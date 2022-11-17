@@ -5,7 +5,7 @@
   height: 0;
   overflow-y: auto;
 
-  background: rgb(45 45 45);
+  background: var(--inner-bg-color);
 
   border-radius: 5px;
   box-shadow: var(--box-shadow);
@@ -15,7 +15,7 @@
 
   pointer-events: none;
   scrollbar-width: auto;
-  scrollbar-color: #575757;
+  scrollbar-color: var(--secondary-color);
 
   &::-webkit-scrollbar {
     width: 12px;
