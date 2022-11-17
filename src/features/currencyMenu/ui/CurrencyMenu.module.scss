@@ -45,8 +45,6 @@
 
   padding: 5px 10px;
 
-  border-radius: 5px;
-
   cursor: pointer;
 
   transition: background 0.1s linear;
@@ -54,6 +52,10 @@
   span {
     margin-right: 5px;
     margin-left: 5px;
+  }
+
+  &.top {
+    box-shadow: 0 0 1px 0 rgb(255 255 255 / 70%);
   }
 
   &:hover,
