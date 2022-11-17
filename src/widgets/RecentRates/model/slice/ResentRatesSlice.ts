@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { CurrencyName, fetchSymbols } from 'entities/choseCurrency';
+import { CurrencyName, fetchSymbols } from 'features/choseCurrency';
 
 import { ResentRatesSchema } from '../types/ResentRatesSchema';
 

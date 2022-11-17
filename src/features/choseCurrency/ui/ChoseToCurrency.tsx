@@ -5,8 +5,8 @@ import {
   DynamicReducerLoader,
   ReducersList,
 } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
-import { SearchToCurrency } from 'features/searchCurrency';
-import { CurrencyToMenu } from 'features/currencyMenu';
+import { SearchToCurrency } from 'entities/searchCurrency';
+import { CurrencyToMenu } from 'entities/currencyMenu';
 import { CurrencyName } from '../model/types/Currency';
 import {
   getToCurrentCurrency,

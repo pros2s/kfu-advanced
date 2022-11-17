@@ -2,7 +2,7 @@ import {
   ChoseBaseCurrency,
   ChoseBaseCurrencyActions,
   fetchSymbols,
-} from 'entities/choseCurrency';
+} from 'features/choseCurrency';
 import { memo, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import {

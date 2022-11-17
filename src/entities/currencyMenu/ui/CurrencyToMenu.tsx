@@ -1,7 +1,8 @@
-import { ChoseBaseCurrencyActions, CurrencyName } from 'entities/choseCurrency';
-import { getSearchBaseCurrencyValue } from 'features/searchCurrency/model/selectors/getSearchBaseCurrency';
-import { SearchBaseCurrencyActions } from 'features/searchCurrency/model/slice/SearchBaseCurrencySlice';
-
+import { ChoseToCurrencyActions, CurrencyName } from 'features/choseCurrency';
+import {
+  getSearchToCurrencyValue,
+  SearchToCurrencyActions,
+} from 'entities/searchCurrency';
 import Fuse from 'fuse.js';
 import { memo, useMemo } from 'react';
 import { useSelector } from 'react-redux';
@@ -16,16 +17,16 @@ interface CurrencyMenuProps {
   isCurMenu?: boolean;
 }
 
-export const CurrencyBaseMenu = memo(
+export const CurrencyToMenu = memo(
   ({ currencyList, isCurMenu }: CurrencyMenuProps) => {
     const dispatch = useAppDispatch();
-    const searchValue = useSelector(getSearchBaseCurrencyValue);
+    const searchValue = useSelector(getSearchToCurrencyValue);
 
     const setNewCurrency = (currency: CurrencyName) => {
-      dispatch(ChoseBaseCurrencyActions.setBaseCurrentCurrency(currency));
-      dispatch(ChoseBaseCurrencyActions.setIsBaseCurMenu(false));
-      dispatch(SearchBaseCurrencyActions.setBaseIsFocused(false));
-      dispatch(SearchBaseCurrencyActions.setBaseValue(''));
+      dispatch(ChoseToCurrencyActions.setToCurrentCurrency(currency));
+      dispatch(ChoseToCurrencyActions.setIsToCurMenu(false));
+      dispatch(SearchToCurrencyActions.setToIsFocused(false));
+      dispatch(SearchToCurrencyActions.setToValue(''));
     };
 
     const searchedCurrency = useMemo(() => {
@@ -43,10 +44,7 @@ export const CurrencyBaseMenu = memo(
       <div className={classNames(cls.curList, [], { [cls.shown]: isCurMenu })}>
         {searchedCurrency?.map((cur) => (
           <Button
-            className={classNames(cls.curName, [], {
-              [cls.top]:
-                cur.abbr === 'rub' || cur.abbr === 'usd' || cur.abbr === 'gbp',
-            })}
+            className={cls.curName}
             key={cur.abbr + cur.description}
             onClick={() => setNewCurrency(cur)}
             theme={ButtonThemes.CLEAR}

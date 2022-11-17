@@ -1,4 +1,4 @@
-import { CurrencyName } from 'entities/choseCurrency';
+import { CurrencyName } from 'features/choseCurrency';
 
 export interface ResentRatesSchema {
   errorMessage?: string;

@@ -1,4 +1,4 @@
-import { ChoseFromCurrencyActions, CurrencyName } from 'entities/choseCurrency';
+import { ChoseBaseCurrencyActions, CurrencyName } from 'features/choseCurrency';
 
 import { memo, useCallback, useMemo } from 'react';
 import { BsCaretDownFill } from 'react-icons/bs';
@@ -12,16 +12,16 @@ import {
   DynamicReducerLoader,
   ReducersList,
 } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
-import {
-  SearchFromCurrencyActions,
-  SearchFromCurrencyReducer,
-} from '../model/slice/SearchFromCurrencySlice';
-import {
-  getSearchFromCurrencyValue,
-  getSearchFromIsFocused,
-} from '../model/selectors/getSearchFromCurrency';
 
 import cls from './SearchCurrency.module.scss';
+import {
+  SearchBaseCurrencyActions,
+  SearchBaseCurrencyReducer,
+} from '../model/slice/SearchBaseCurrencySlice';
+import {
+  getSearchBaseCurrencyValue,
+  getSearchBaseIsFocused,
+} from '../model/selectors/getSearchBaseCurrency';
 
 interface SearchCurrencyProps {
   currentCurrency?: CurrencyName;
@@ -29,15 +29,15 @@ interface SearchCurrencyProps {
 }
 
 const reducers: ReducersList = {
-  searchFromCurrency: SearchFromCurrencyReducer,
+  searchBaseCurrency: SearchBaseCurrencyReducer,
 };
 
-export const SearchFromCurrency = memo(
+export const SearchBaseCurrency = memo(
   ({ currentCurrency, isCurMenu }: SearchCurrencyProps) => {
     const dispatch = useAppDispatch();
-    const isFocused = useSelector(getSearchFromIsFocused);
+    const isFocused = useSelector(getSearchBaseIsFocused);
 
-    const value = useSelector(getSearchFromCurrencyValue);
+    const value = useSelector(getSearchBaseCurrencyValue);
 
     const placeholder = useMemo(
       () =>
@@ -49,19 +49,19 @@ export const SearchFromCurrency = memo(
 
     const onChangeInput = useCallback(
       (val: string) => {
-        dispatch(SearchFromCurrencyActions.setFromValue(val));
+        dispatch(SearchBaseCurrencyActions.setBaseValue(val));
       },
       [dispatch],
     );
 
     const onInputClick = () => {
-      dispatch(SearchFromCurrencyActions.setFromIsFocused(true));
-      dispatch(ChoseFromCurrencyActions.setIsFromCurMenu(true));
+      dispatch(SearchBaseCurrencyActions.setBaseIsFocused(true));
+      dispatch(ChoseBaseCurrencyActions.setIsBaseCurMenu(true));
     };
 
     const toggleCurMenu = () => {
-      dispatch(SearchFromCurrencyActions.setFromIsFocused(!isFocused));
-      dispatch(ChoseFromCurrencyActions.setIsFromCurMenu(!isCurMenu));
+      dispatch(SearchBaseCurrencyActions.setBaseIsFocused(!isFocused));
+      dispatch(ChoseBaseCurrencyActions.setIsBaseCurMenu(!isCurMenu));
     };
 
     return (

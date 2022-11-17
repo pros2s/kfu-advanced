@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { CurrencyName, fetchRate, fetchSymbols } from 'entities/choseCurrency';
+import { CurrencyName, fetchRate, fetchSymbols } from 'features/choseCurrency';
 
 import { LOCALSTORAGE_INPUT_VALUE } from 'shared/consts/localeStorage';
 

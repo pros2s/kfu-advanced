@@ -7,8 +7,8 @@ import {
 } from '@reduxjs/toolkit';
 
 import { AxiosInstance } from 'axios';
-import { ChoseCurrencySchema } from 'entities/choseCurrency';
-import { SearchCurrencySchema } from 'features/searchCurrency';
+import { ChoseCurrencySchema } from 'features/choseCurrency';
+import { SearchCurrencySchema } from 'entities/searchCurrency';
 import { NavigateOptions, To } from 'react-router-dom';
 import { CurrencyConverterSchema } from 'widgets/CurrencyConverter';
 import { ResentRatesSchema } from 'widgets/RecentRates';

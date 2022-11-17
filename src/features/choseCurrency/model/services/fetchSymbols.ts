@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
-import { CurrencyName } from 'entities/choseCurrency';
+import { CurrencyName } from 'features/choseCurrency';
 
 export const fetchSymbols = createAsyncThunk<
   CurrencyName[],

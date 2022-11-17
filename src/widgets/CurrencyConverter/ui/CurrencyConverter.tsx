@@ -5,7 +5,7 @@ import {
   ChoseToCurrencyActions,
   fetchRate,
   fetchSymbols,
-} from 'entities/choseCurrency';
+} from 'features/choseCurrency';
 import {
   KeyboardEvent,
   memo,
@@ -27,8 +27,8 @@ import { Button, ButtonThemes } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Text, TextAlign, TextThemes } from 'shared/ui/Text/Text';
-import { getToCurrentCurrency } from 'entities/choseCurrency/model/selectors/getAllToCurrency';
-import { getFromCurrentCurrency } from 'entities/choseCurrency/model/selectors/getAllFromCurrency';
+import { getToCurrentCurrency } from 'features/choseCurrency/model/selectors/getAllToCurrency';
+import { getFromCurrentCurrency } from 'features/choseCurrency/model/selectors/getAllFromCurrency';
 
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutesPaths } from 'shared/lib/routes/routes';

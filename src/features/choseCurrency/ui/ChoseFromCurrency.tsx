@@ -5,8 +5,8 @@ import {
   DynamicReducerLoader,
   ReducersList,
 } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
-import { SearchFromCurrency } from 'features/searchCurrency';
-import { CurrencyFromMenu } from 'features/currencyMenu';
+import { SearchFromCurrency } from 'entities/searchCurrency';
+import { CurrencyFromMenu } from 'entities/currencyMenu';
 import { ChoseFromCurrencyReducer } from '../model/slice/ChoseFromCurrencySlice';
 import {
   getFromCurrentCurrency,

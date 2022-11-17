@@ -1,8 +1,8 @@
-import { ChoseFromCurrencyActions, CurrencyName } from 'entities/choseCurrency';
+import { ChoseFromCurrencyActions, CurrencyName } from 'features/choseCurrency';
 import {
   getSearchFromCurrencyValue,
   SearchFromCurrencyActions,
-} from 'features/searchCurrency';
+} from 'entities/searchCurrency';
 
 import Fuse from 'fuse.js';
 import { memo, useMemo } from 'react';

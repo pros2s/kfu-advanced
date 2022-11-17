@@ -1,5 +1,5 @@
-import { CurrencyBaseMenu } from 'features/currencyMenu';
-import { SearchBaseCurrency } from 'features/searchCurrency/ui/SearchBaseCurrency';
+import { CurrencyBaseMenu } from 'entities/currencyMenu';
+import { SearchBaseCurrency } from 'entities/searchCurrency/ui/SearchBaseCurrency';
 import { memo } from 'react';
 
 import { useSelector } from 'react-redux';

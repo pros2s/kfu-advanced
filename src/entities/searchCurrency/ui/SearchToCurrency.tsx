@@ -1,4 +1,4 @@
-import { ChoseToCurrencyActions, CurrencyName } from 'entities/choseCurrency';
+import { ChoseToCurrencyActions, CurrencyName } from 'features/choseCurrency';
 
 import { memo, useCallback, useMemo } from 'react';
 import { BsCaretDownFill } from 'react-icons/bs';
