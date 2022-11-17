@@ -77,6 +77,9 @@ export const CurrencyConverter = memo(() => {
 
   useEffect(() => {
     dispatch(fetchSymbols());
+    dispatch(ChoseFromCurrencyActions.setDefaultFromCurrentCurrency());
+    dispatch(ChoseToCurrencyActions.setDefaultToCurrentCurrency());
+    dispatch(CurrencyConverterActions.setDefaultInputValue());
   }, [dispatch]);
 
   useEffect(() => {
@@ -127,20 +130,22 @@ export const CurrencyConverter = memo(() => {
               {isLoading && <Loader size='20px' borderWidth='4px' />}
             </div>
           </div>
-          <div className={cls.from}>
-            <h3 className={cls.label}>{t('fromCurrency')}</h3>
-            <ChoseFromCurrency currencyList={currencyList} />
-          </div>
-          <Button
-            className={cls.exchange}
-            theme={ButtonThemes.CLEAR}
-            onClick={onExchange}
-          >
-            <CgArrowsExchange />
-          </Button>
-          <div className={cls.to}>
-            <h3 className={cls.label}>{t('toCurrency')}</h3>
-            <ChoseToCurrency currencyList={currencyList} />
+          <div className={cls.currencyLists}>
+            <div className={cls.from}>
+              <h3 className={cls.label}>{t('fromCurrency')}</h3>
+              <ChoseFromCurrency currencyList={currencyList} />
+            </div>
+            <Button
+              className={cls.exchange}
+              theme={ButtonThemes.CLEAR}
+              onClick={onExchange}
+            >
+              <CgArrowsExchange />
+            </Button>
+            <div className={cls.to}>
+              <h3 className={cls.label}>{t('toCurrency')}</h3>
+              <ChoseToCurrency currencyList={currencyList} />
+            </div>
           </div>
         </div>
 

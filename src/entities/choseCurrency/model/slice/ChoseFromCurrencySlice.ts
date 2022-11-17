@@ -1,8 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import {
+  LOCALSTORAGE_FROM_CURRENT_CURRENCY_ABBR,
+  LOCALSTORAGE_FROM_CURRENT_CURRENCY_DESC,
+} from 'shared/consts/localeStorage';
 import { ChoseCurrencySchema, CurrencyName } from '../types/Currency';
 
 const initialState: ChoseCurrencySchema = {
-  currentCurrency: { abbr: 'usd', description: 'United States Dollar' },
+  currentCurrency: { abbr: '', description: '' },
   isCurMenu: false,
 };
 
@@ -11,10 +15,29 @@ const choseFromCurrencySlice = createSlice({
   initialState,
   reducers: {
     setFromCurrentCurrency(state, { payload }: PayloadAction<CurrencyName>) {
+      localStorage.setItem(
+        LOCALSTORAGE_FROM_CURRENT_CURRENCY_ABBR,
+        payload.abbr,
+      );
+      localStorage.setItem(
+        LOCALSTORAGE_FROM_CURRENT_CURRENCY_DESC,
+        payload.description,
+      );
       state.currentCurrency = payload;
     },
     setIsFromCurMenu(state, { payload }: PayloadAction<boolean>) {
       state.isCurMenu = payload;
+    },
+    setDefaultFromCurrentCurrency(state) {
+      const localeStorageCurrentCurrencyAbbr = localStorage.getItem(
+        LOCALSTORAGE_FROM_CURRENT_CURRENCY_ABBR,
+      );
+      const localeStorageCurrentCurrencyDesc = localStorage.getItem(
+        LOCALSTORAGE_FROM_CURRENT_CURRENCY_DESC,
+      );
+      state.currentCurrency.abbr = localeStorageCurrentCurrencyAbbr || 'usd';
+      state.currentCurrency.description =
+        localeStorageCurrentCurrencyDesc || 'United States Dollar';
     },
   },
 });

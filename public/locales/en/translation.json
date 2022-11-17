@@ -6,5 +6,6 @@
   "symbolsError": "Error with symbols loading",
   "convert": "Convert",
   "fromCurrency": "From",
-  "toCurrency": "To"
+  "toCurrency": "To",
+  "amount": "Amount"
 }

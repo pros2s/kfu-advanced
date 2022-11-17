@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { CurrencyName } from 'entities/choseCurrency';
 import { fetchRate } from 'entities/choseCurrency/model/services/fetchRate';
+import { LOCALSTORAGE_INPUT_VALUE } from 'shared/consts/localeStorage';
 import { fetchSymbols } from 'widgets/CurrencyConverter/model/services/fetchSymbols';
 import { CurrencyConverterSchema } from '../types/CurrencyConverterSchema';
 
@@ -17,7 +18,12 @@ const currencyConverterSlice = createSlice({
   initialState,
   reducers: {
     setInputValue(state, { payload }: PayloadAction<string>) {
+      localStorage.setItem(LOCALSTORAGE_INPUT_VALUE, payload);
       state.inputValue = payload;
+    },
+    setDefaultInputValue(state) {
+      const localeStorageValue = localStorage.getItem(LOCALSTORAGE_INPUT_VALUE);
+      state.inputValue = localeStorageValue || '1.00';
     },
   },
   extraReducers: (builder) => {
@@ -63,22 +69,6 @@ const currencyConverterSlice = createSlice({
         state.errorMessage = payload;
         state.isLoading = false;
       });
-    // .addCase(currentRate.pending, (state) => {
-    //   state.errorMessage = '';
-    //   state.isLoading = true;
-    // })
-    // .addCase(
-    //   currentRate.fulfilled,
-    //   (state, { payload }: PayloadAction<ConvertResult>) => {
-    //     state.currentRate = payload;
-    //     state.errorMessage = '';
-    //     state.isLoading = false;
-    //   },
-    // )
-    // .addCase(currentRate.rejected, (state, { payload }) => {
-    //   state.errorMessage = payload;
-    //   state.isLoading = false;
-    // });
   },
 });
 

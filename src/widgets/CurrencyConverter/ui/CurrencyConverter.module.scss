@@ -1,28 +1,50 @@
 .CurrencyConverter {
   min-height: 200px;
   margin: 0 auto;
+  padding: 20px 100px;
 
   background-color: var(--inner-bg-color);
   border-radius: 5px;
   box-shadow: var(--box-shadow);
+
+  @media screen and (max-width: 1000px) {
+    padding-right: 60px;
+    padding-left: 60px;
+  }
+
+  @media screen and (max-width: 800px) {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+
+  @media screen and (max-width: 600px) {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
 }
 
 .inner {
-  width: 800px;
-  margin: 0 auto;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .tools {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.currencyLists {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .input {
   display: flex;
   align-items: center;
 
-  width: 220px;
+  max-width: 220px;
   margin-right: 10px;
   margin-bottom: 10px;
   padding: 5px 10px;
@@ -63,6 +85,12 @@
   &:hover {
     color: var(--primary-color);
   }
+
+  @media screen and (max-width: 600px) {
+    width: 200px;
+    margin: 0 5px;
+    margin-bottom: -10px;
+  }
 }
 
 .label {
@@ -72,7 +100,13 @@
 }
 
 .result {
+  align-self: self-start;
   margin-top: 20px;
+  margin-left: 35px;
+
+  @media screen and (max-width: 600px) {
+    font: var(--font-s);
+  }
 
   h3 {
     margin-bottom: 5px;
@@ -85,5 +119,9 @@
 
     color: #767676;
     font: var(--font-s);
+  }
+
+  @media screen and (max-width: 1000px) {
+    margin-left: 0;
   }
 }

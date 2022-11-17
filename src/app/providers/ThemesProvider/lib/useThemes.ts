@@ -14,12 +14,12 @@ export const useThemes = (): UseThemesResults => {
   const { theme, setTheme } = useContext(ThemesContext);
 
   const toggleTheme = () => {
-    const currentTheme = theme === Themes.DARK ? Themes.LIGHT : Themes.DARK
+    const currentTheme = theme === Themes.DARK ? Themes.LIGHT : Themes.DARK;
 
     setTheme?.(currentTheme);
     document.body.className = currentTheme;
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, currentTheme);
   };
 
-  return { theme: theme || Themes.LIGHT, toggleTheme };
+  return { theme: theme || Themes.DARK, toggleTheme };
 };
