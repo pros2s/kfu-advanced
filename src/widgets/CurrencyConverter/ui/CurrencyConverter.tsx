@@ -28,6 +28,8 @@ import { Text, TextAlign, TextThemes } from 'shared/ui/Text/Text';
 import { getToCurrentCurrency } from 'entities/choseCurrency/model/selectors/getAllToCurrency';
 import { getFromCurrentCurrency } from 'entities/choseCurrency/model/selectors/getAllFromCurrency';
 import { fetchRate } from 'entities/choseCurrency/model/services/fetchRate';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { RoutesPaths } from 'shared/lib/routes/routes';
 import {
   getConverterError,
   getConverterInputValue,
@@ -117,7 +119,7 @@ export const CurrencyConverter = memo(() => {
   } else {
     element = (
       <div className={cls.inner}>
-        <div className={cls.tools}>
+        <section className={cls.tools}>
           <div>
             <h3 className={cls.label}>{t('convert')}</h3>
             <div className={cls.input}>
@@ -147,14 +149,20 @@ export const CurrencyConverter = memo(() => {
               <ChoseToCurrency currencyList={currencyList} />
             </div>
           </div>
-        </div>
+        </section>
 
-        <div className={cls.result}>
-          <h3>{`${inputValue} ${fromCurrentCur?.description}s =`}</h3>
-          <h1>{`${result.toFixed(2)} ${toCurrentCur?.description}s`}</h1>
-          <p>{`1.00 ${fromCurrentCur?.abbr.toUpperCase()} = ${result.toFixed(
-            2,
-          )} ${toCurrentCur?.abbr.toUpperCase()}`}</p>
+        <div className={cls.info}>
+          <div className={cls.result}>
+            <h3>{`${inputValue} ${fromCurrentCur?.description}s =`}</h3>
+            <h1>{`${result.toFixed(2)} ${toCurrentCur?.description}s`}</h1>
+            <p>{`1.00 ${fromCurrentCur?.abbr.toUpperCase()} = ${result.toFixed(
+              2,
+            )} ${toCurrentCur?.abbr.toUpperCase()}`}</p>
+          </div>
+
+          <AppLink to={RoutesPaths.rates} theme={AppLinkTheme.SECONDARY}>
+            <Button className={cls.linkButton} theme={ButtonThemes.CLEAR}>{t('recentRates')}</Button>
+          </AppLink>
         </div>
       </div>
     );
@@ -162,7 +170,7 @@ export const CurrencyConverter = memo(() => {
 
   return (
     <DynamicReducerLoader reducers={reducers} removeAfterUnmount>
-      <section className={cls.CurrencyConverter}>{element}</section>
+      <section className='content'>{element}</section>
     </DynamicReducerLoader>
   );
 });

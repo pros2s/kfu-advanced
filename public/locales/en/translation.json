@@ -7,5 +7,6 @@
   "convert": "Convert",
   "fromCurrency": "From",
   "toCurrency": "To",
-  "amount": "Amount"
+  "amount": "Amount",
+  "recentRates": "Watch recent rates"
 }

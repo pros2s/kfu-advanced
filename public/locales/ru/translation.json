@@ -7,5 +7,6 @@
   "convert": "Конвертировать",
   "fromCurrency": "С валюты",
   "toCurrency": "В валюту",
-  "amount": "Сумма"
+  "amount": "Сумма",
+  "recentRates": "Смотреть свежие курсы"
 }
