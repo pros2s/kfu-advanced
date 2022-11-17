@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { CurrencyName } from 'entities/choseCurrency';
-import { fetchRate } from 'entities/choseCurrency/model/services/fetchRate';
+import { CurrencyName, fetchRate, fetchSymbols } from 'entities/choseCurrency';
+
 import { LOCALSTORAGE_INPUT_VALUE } from 'shared/consts/localeStorage';
-import { fetchSymbols } from 'widgets/CurrencyConverter/model/services/fetchSymbols';
+
 import { CurrencyConverterSchema } from '../types/CurrencyConverterSchema';
 
 const initialState: CurrencyConverterSchema = {

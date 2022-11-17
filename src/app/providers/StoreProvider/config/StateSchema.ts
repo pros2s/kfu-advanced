@@ -11,12 +11,18 @@ import { ChoseCurrencySchema } from 'entities/choseCurrency';
 import { SearchCurrencySchema } from 'features/searchCurrency';
 import { NavigateOptions, To } from 'react-router-dom';
 import { CurrencyConverterSchema } from 'widgets/CurrencyConverter';
+import { ResentRatesSchema } from 'widgets/RecentRates';
 
 export interface StateSchema {
   currencyConverter?: CurrencyConverterSchema;
+  recentRates?: ResentRatesSchema;
+
   searchFromCurrency?: SearchCurrencySchema;
+  searchBaseCurrency?: SearchCurrencySchema;
   searchToCurrency?: SearchCurrencySchema;
+
   choseFromCurrency?: ChoseCurrencySchema;
+  choseBaseCurrency?: ChoseCurrencySchema;
   choseToCurrency?: ChoseCurrencySchema;
 }
 

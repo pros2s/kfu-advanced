@@ -11,5 +11,15 @@ export {
   ChoseFromCurrencyReducer,
 } from './model/slice/ChoseFromCurrencySlice';
 
+export { ChoseBaseCurrency } from './ui/ChoseBaseCurrency';
+export {
+  ChoseBaseCurrencyActions,
+  ChoseBaseCurrencyReducer,
+} from './model/slice/ChoseBaseCurrencySlice';
+
 export { getToCurrentCurrency } from './model/selectors/getAllToCurrency';
 export { getFromCurrentCurrency } from './model/selectors/getAllFromCurrency';
+export { getBaseCurrentCurrency } from './model/selectors/getAllBaseCurrency';
+
+export { fetchRate } from './model/services/fetchRate';
+export { fetchSymbols } from './model/services/fetchSymbols';

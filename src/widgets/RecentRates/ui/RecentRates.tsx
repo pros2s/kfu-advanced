@@ -1,12 +1,36 @@
-import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
+import {
+  ChoseBaseCurrency,
+  ChoseBaseCurrencyActions,
+  fetchSymbols,
+} from 'entities/choseCurrency';
+import { memo, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import {
+  DynamicReducerLoader,
+  ReducersList,
+} from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { getRecentRatesList } from '../model/selectors/getAllRecentRates';
+import { ResentRatesReducer } from '../model/slice/ResentRatesSlice';
 
-interface RecentRatesProps {
-  className?: string;
-}
+const reducers: ReducersList = {
+  recentRates: ResentRatesReducer,
+};
 
-export const RecentRates = memo(({ className }: RecentRatesProps) => {
-  const { t } = useTranslation();
+export const RecentRates = memo(() => {
+  const dispatch = useAppDispatch();
+  const currencyList = useSelector(getRecentRatesList);
 
-  return <section className='content'>recent rates</section>;
+  useEffect(() => {
+    dispatch(fetchSymbols());
+    dispatch(ChoseBaseCurrencyActions.setDefaultBaseCurrentCurrency());
+  }, [dispatch]);
+
+  return (
+    <DynamicReducerLoader reducers={reducers}>
+      <section className='content'>
+        <ChoseBaseCurrency currencyList={currencyList} />
+      </section>
+    </DynamicReducerLoader>
+  );
 });

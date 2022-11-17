@@ -3,6 +3,8 @@ import {
   ChoseFromCurrencyActions,
   ChoseToCurrency,
   ChoseToCurrencyActions,
+  fetchRate,
+  fetchSymbols,
 } from 'entities/choseCurrency';
 import {
   KeyboardEvent,
@@ -27,7 +29,7 @@ import { Loader } from 'shared/ui/Loader/Loader';
 import { Text, TextAlign, TextThemes } from 'shared/ui/Text/Text';
 import { getToCurrentCurrency } from 'entities/choseCurrency/model/selectors/getAllToCurrency';
 import { getFromCurrentCurrency } from 'entities/choseCurrency/model/selectors/getAllFromCurrency';
-import { fetchRate } from 'entities/choseCurrency/model/services/fetchRate';
+
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutesPaths } from 'shared/lib/routes/routes';
 import {
@@ -37,7 +39,6 @@ import {
   getConverterRate,
   getCurrencyList,
 } from '../model/selectors/getAllCurrencyConverter';
-import { fetchSymbols } from '../model/services/fetchSymbols';
 
 import {
   CurrencyConverterActions,
@@ -161,7 +162,9 @@ export const CurrencyConverter = memo(() => {
           </div>
 
           <AppLink to={RoutesPaths.rates} theme={AppLinkTheme.SECONDARY}>
-            <Button className={cls.linkButton} theme={ButtonThemes.CLEAR}>{t('recentRates')}</Button>
+            <Button className={cls.linkButton} theme={ButtonThemes.CLEAR}>
+              {t('recentRates')}
+            </Button>
           </AppLink>
         </div>
       </div>
