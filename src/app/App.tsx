@@ -13,20 +13,21 @@ const App = memo(() => {
 
   return (
     <div className={classNames('app', [theme])}>
-      <div className='container'>
-        <Suspense fallback=''>
-          <nav className='navbar'>
+      <Suspense fallback=''>
+        <nav className='navbar'>
+          <div className='navbar-inner'>
             <ConverterLink />
             <div>
               <LangSwitcher />
               <ThemeSwitcher />
             </div>
-          </nav>
-          <div className='content-page'>
-            <RoutesProvieder />
           </div>
-        </Suspense>
-      </div>
+        </nav>
+        <div className='container'>
+          <RoutesProvieder />
+        </div>
+      </Suspense>
+
     </div>
   );
 });

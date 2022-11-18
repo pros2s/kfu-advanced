@@ -13,6 +13,7 @@ import {
   ReducersList,
 } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 
+import { useTranslation } from 'react-i18next';
 import cls from './SearchCurrency.module.scss';
 import {
   SearchBaseCurrencyActions,
@@ -35,16 +36,19 @@ const reducers: ReducersList = {
 export const SearchBaseCurrency = memo(
   ({ currentCurrency, isCurMenu }: SearchCurrencyProps) => {
     const dispatch = useAppDispatch();
+    const { t } = useTranslation();
     const isFocused = useSelector(getSearchBaseIsFocused);
 
     const value = useSelector(getSearchBaseCurrencyValue);
 
     const placeholder = useMemo(
       () =>
-        `${currentCurrency?.abbr.toUpperCase()} - ${
-          currentCurrency?.description
-        }`,
-      [currentCurrency?.abbr, currentCurrency?.description],
+        !currentCurrency
+          ? t('currencyError')
+          : `${currentCurrency?.abbr.toUpperCase()} - ${
+              currentCurrency?.description
+            }`,
+      [currentCurrency, t],
     );
 
     const onChangeInput = useCallback(

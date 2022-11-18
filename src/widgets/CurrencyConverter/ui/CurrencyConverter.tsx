@@ -34,6 +34,10 @@ import { getFromCurrentCurrency } from 'features/choseCurrency/model/selectors/g
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutesPaths } from 'shared/lib/routes/routes';
 import {
+  SearchFromCurrencyActions,
+  SearchToCurrencyActions,
+} from 'entities/searchCurrency';
+import {
   getConverterError,
   getConverterInputValue,
   getConverterIsLoading,
@@ -97,9 +101,18 @@ export const CurrencyConverter = memo(() => {
     }
   }, [dispatch, fromCurrentCur?.abbr, onConvert, toCurrentCur?.abbr]);
 
+  const onInputClick = useCallback(() => {
+    dispatch(ChoseToCurrencyActions.setIsToCurMenu(false));
+    dispatch(SearchToCurrencyActions.setToIsFocused(false));
+    dispatch(ChoseFromCurrencyActions.setIsFromCurMenu(false));
+    dispatch(SearchFromCurrencyActions.setFromIsFocused(false));
+  }, [dispatch]);
+
   const onChangeInput = useCallback(
     (val: string) => {
-      dispatch(CurrencyConverterActions.setInputValue(val));
+      if (val.length < 16) {
+        dispatch(CurrencyConverterActions.setInputValue(val));
+      }
     },
     [dispatch],
   );
@@ -131,6 +144,7 @@ export const CurrencyConverter = memo(() => {
                 value={inputValue}
                 onChange={onChangeInput}
                 onKeyPress={inputChange}
+                onClick={onInputClick}
               />
               {isLoading && <Loader size='20px' borderWidth='4px' />}
             </div>
@@ -156,18 +170,42 @@ export const CurrencyConverter = memo(() => {
 
         <div className={cls.info}>
           <div className={cls.result}>
-            <h3>{`${inputValue} ${fromCurrentCur?.description}s =`}</h3>
-            <h1>{`${result.toFixed(2)} ${toCurrentCur?.description}s`}</h1>
-            <p>{`1.00 ${fromCurrentCur?.abbr.toUpperCase()} = ${rate?.toFixed(
-              2,
-            )} ${toCurrentCur?.abbr.toUpperCase()}`}</p>
+            <h3>
+              {`${inputValue} `}
+              <span className={cls.currency}>
+                {!fromCurrentCur
+                  ? t('currencyError')
+                  : `${fromCurrentCur?.description}s =`}
+              </span>
+            </h3>
+            <h1>
+              {`${result.toFixed(2)} `}
+              <span className={cls.currency}>
+                {!toCurrentCur
+                  ? t('currencyError')
+                  : `${toCurrentCur?.description}s`}
+              </span>
+            </h1>
+            <p>
+              {`1.00 ${fromCurrentCur?.abbr.toUpperCase()} = `}
+              <span>
+                {!rate ? (
+                  <Loader size='14px' borderWidth='2px' />
+                ) : (
+                  `${rate?.toFixed(2)}`
+                )}
+              </span>
+              {`${toCurrentCur?.abbr.toUpperCase()}`}
+            </p>
           </div>
 
-          <AppLink to={RoutesPaths.rates} theme={AppLinkTheme.SECONDARY}>
-            <Button className={cls.linkButton} theme={ButtonThemes.CLEAR}>
-              {t('recentRates')}
-            </Button>
-          </AppLink>
+          <div>
+            <AppLink to={RoutesPaths.rates} theme={AppLinkTheme.SECONDARY}>
+              <Button className={cls.linkButton} theme={ButtonThemes.CLEAR}>
+                {t('recentRates')}
+              </Button>
+            </AppLink>
+          </div>
         </div>
       </div>
     );

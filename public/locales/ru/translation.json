@@ -12,6 +12,7 @@
   "searchCur": "Найти валюту",
   "search": "Поиск",
   "choseBaseCurrency": "Выбрать базовую валюту",
-  "goConverter": "Верунться к конвертеру",
-  "rateOfChangePerDay": "Коэфф. изменения за день"
+  "goConverter": "Назад к конвертеру",
+  "rateOfChangePerDay": "Коэфф. изменения за день",
+  "currencyError": "Валюта не найдена"
 }

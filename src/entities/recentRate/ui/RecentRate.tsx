@@ -3,6 +3,7 @@ import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Loader } from 'shared/ui/Loader/Loader';
 
 import cls from './RecentRate.module.scss';
 
@@ -42,19 +43,26 @@ export const RecentRate = memo(
           <p>{`${currencyName.description}`}</p>
           <span> {currencyName.abbr.toUpperCase()}</span>
         </div>
-        <p
-          className={classNames(cls.second, [], {
-            [cls.positive]: differenceRates >= 0,
-            [cls.negative]: differenceRates < 0,
-          })}
-          data-text={t('rateOfChangePerDay')}
-        >
-          {`${differenceRates >= 0 ? '+' : ''}${differenceRates.toFixed(2)}%`}
-        </p>
+        {Number.isNaN(differenceRates) ? (
+          <Loader size='20px' borderWidth='3px' />
+        ) : (
+          <p
+            className={classNames(cls.second, [], {
+              [cls.positive]: differenceRates >= 0,
+              [cls.negative]: differenceRates < 0,
+            })}
+            data-text={t('rateOfChangePerDay')}
+          >
+            {`${differenceRates >= 0 ? '+' : ''}${differenceRates.toFixed(2)}%`}
+          </p>
+        )}
         <p className={cls.third}>
-          {`${(1 / currencyRecentRate).toFixed(
-            2,
-          )} ${baseCurrency?.abbr.toUpperCase()}`}
+          {Number.isNaN(1 / currencyRecentRate) ? (
+            <Loader size='20px' borderWidth='3px' />
+          ) : (
+            `${(1 / currencyRecentRate).toFixed(2)}`
+          )}
+          <span>{` ${baseCurrency?.abbr.toUpperCase()}`}</span>
         </p>
       </li>
     );

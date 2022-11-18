@@ -12,6 +12,7 @@
   "searchCur": "Search currency",
   "search": "Search",
   "choseBaseCurrency": "Chose base currency",
-  "goConverter": "Come back to converter",
-  "rateOfChangePerDay": "Rate of change per day"
+  "goConverter": "Back to converter",
+  "rateOfChangePerDay": "Rate of change per day",
+  "currencyError": "Currency not found"
 }

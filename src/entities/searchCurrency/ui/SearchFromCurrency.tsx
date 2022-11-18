@@ -1,4 +1,8 @@
-import { ChoseFromCurrencyActions, CurrencyName } from 'features/choseCurrency';
+import {
+  ChoseFromCurrencyActions,
+  ChoseToCurrencyActions,
+  CurrencyName,
+} from 'features/choseCurrency';
 
 import { memo, useCallback, useMemo } from 'react';
 import { BsCaretDownFill } from 'react-icons/bs';
@@ -12,6 +16,8 @@ import {
   DynamicReducerLoader,
   ReducersList,
 } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
+import { SearchToCurrencyActions } from 'entities/searchCurrency/model/slice/SearchToCurrencySlice';
+import { useTranslation } from 'react-i18next';
 import {
   SearchFromCurrencyActions,
   SearchFromCurrencyReducer,
@@ -35,16 +41,19 @@ const reducers: ReducersList = {
 export const SearchFromCurrency = memo(
   ({ currentCurrency, isCurMenu }: SearchCurrencyProps) => {
     const dispatch = useAppDispatch();
+    const { t } = useTranslation();
     const isFocused = useSelector(getSearchFromIsFocused);
 
     const value = useSelector(getSearchFromCurrencyValue);
 
     const placeholder = useMemo(
       () =>
-        `${currentCurrency?.abbr.toUpperCase()} - ${
-          currentCurrency?.description
-        }`,
-      [currentCurrency?.abbr, currentCurrency?.description],
+        !currentCurrency
+          ? t('currencyError')
+          : `${currentCurrency?.abbr.toUpperCase()} - ${
+              currentCurrency?.description
+            }`,
+      [currentCurrency, t],
     );
 
     const onChangeInput = useCallback(
@@ -57,11 +66,15 @@ export const SearchFromCurrency = memo(
     const onInputClick = () => {
       dispatch(SearchFromCurrencyActions.setFromIsFocused(true));
       dispatch(ChoseFromCurrencyActions.setIsFromCurMenu(true));
+      dispatch(ChoseToCurrencyActions.setIsToCurMenu(false));
+      dispatch(SearchToCurrencyActions.setToIsFocused(false));
     };
 
     const toggleCurMenu = () => {
       dispatch(SearchFromCurrencyActions.setFromIsFocused(!isFocused));
       dispatch(ChoseFromCurrencyActions.setIsFromCurMenu(!isCurMenu));
+      dispatch(ChoseToCurrencyActions.setIsToCurMenu(false));
+      dispatch(SearchToCurrencyActions.setToIsFocused(false));
     };
 
     return (

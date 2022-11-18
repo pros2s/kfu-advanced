@@ -12,6 +12,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Input } from 'shared/ui/Input/Input';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { SearchBaseCurrencyActions } from 'entities/searchCurrency/model/slice/SearchBaseCurrencySlice';
 import { fetchRecentRates } from '../model/services/fetchRecentRates';
 import {
   getRecentRates,
@@ -49,6 +50,11 @@ export const RecentRates = memo(() => {
     );
   }, [currentCurrency?.abbr, dispatch, recentRatesDate]);
 
+  const onInputClick = useCallback(() => {
+    dispatch(ChoseBaseCurrencyActions.setIsBaseCurMenu(false));
+    dispatch(SearchBaseCurrencyActions.setBaseIsFocused(false));
+  }, [dispatch]);
+
   const onChangeInput = useCallback(
     (val: string) => {
       dispatch(ResentRatesActions.setInputValue(val));
@@ -65,6 +71,7 @@ export const RecentRates = memo(() => {
               placeholder={t('search')}
               value={inputValue}
               onChange={onChangeInput}
+              onClick={onInputClick}
             />
           </div>
         </div>
