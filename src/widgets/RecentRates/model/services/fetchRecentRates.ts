@@ -15,7 +15,7 @@ export const fetchRecentRates = createAsyncThunk<
         `/latest/currencies/${base}.min.json`,
       );
 
-      if (!response.data) {
+      if (!response || !response.data) {
         throw new Error();
       }
 

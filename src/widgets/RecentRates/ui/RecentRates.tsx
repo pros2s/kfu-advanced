@@ -7,10 +7,6 @@ import {
 } from 'features/choseCurrency';
 import { memo, useEffect, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import {
-  DynamicReducerLoader,
-  ReducersList,
-} from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Input } from 'shared/ui/Input/Input';
 import { useTranslation } from 'react-i18next';
@@ -23,17 +19,10 @@ import {
   getRecentRatesList,
   getYesterDayRates,
 } from '../model/selectors/getAllRecentRates';
-import {
-  ResentRatesActions,
-  ResentRatesReducer,
-} from '../model/slice/ResentRatesSlice';
+import { ResentRatesActions } from '../model/slice/ResentRatesSlice';
 
 import cls from './RecentRates.module.scss';
 import { fetchYesterdayRates } from '../model/services/fetchYesterdayRates';
-
-const reducers: ReducersList = {
-  recentRates: ResentRatesReducer,
-};
 
 export const RecentRates = memo(() => {
   const { t } = useTranslation();
@@ -50,6 +39,7 @@ export const RecentRates = memo(() => {
   useEffect(() => {
     dispatch(fetchSymbols());
     dispatch(ChoseBaseCurrencyActions.setDefaultBaseCurrentCurrency());
+
     dispatch(fetchRecentRates({ base: currentCurrency?.abbr }));
     dispatch(
       fetchYesterdayRates({
@@ -66,34 +56,31 @@ export const RecentRates = memo(() => {
     [dispatch],
   );
   return (
-    <DynamicReducerLoader reducers={reducers}>
-      <section className='content'>
-        <div className={cls.choseInput}>
-          <div className={cls.header}>
-            <h3 className={cls.label}>{t('searchCur')}</h3>
-            <div className={classNames(cls.input, ['input'])}>
-              <Input
-                placeholder={t('search')}
-                value={inputValue}
-                onChange={onChangeInput}
-              />
-            </div>
-          </div>
-          <div>
-            <h3 className={cls.label}>{t('choseBaseCurrency')}</h3>
-            <ChoseBaseCurrency
-              currencyList={currencyList}
-              currentCurrency={currentCurrency}
+    <section className='content'>
+      <div className={cls.choseInput}>
+        <div className={cls.header}>
+          <h3 className={cls.label}>{t('searchCur')}</h3>
+          <div className={classNames(cls.input, ['input'])}>
+            <Input
+              placeholder={t('search')}
+              value={inputValue}
+              onChange={onChangeInput}
             />
           </div>
         </div>
-        <RecentRatesList
-          currencyList={currencyList}
-          recentRates={recentRates}
-          yesterdayRates={yesterdayRates}
-          // currentCurrency={currentCurrency}
-        />
-      </section>
-    </DynamicReducerLoader>
+        <div>
+          <h3 className={cls.label}>{t('choseBaseCurrency')}</h3>
+          <ChoseBaseCurrency
+            currencyList={currencyList}
+            currentCurrency={currentCurrency}
+          />
+        </div>
+      </div>
+      <RecentRatesList
+        currencyList={currencyList}
+        recentRates={recentRates}
+        yesterdayRates={yesterdayRates}
+      />
+    </section>
   );
 });

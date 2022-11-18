@@ -14,8 +14,10 @@ import { CurrencyConverterSchema } from 'widgets/CurrencyConverter';
 import { ResentRatesSchema } from 'widgets/RecentRates';
 
 export interface StateSchema {
+  recentRates: ResentRatesSchema;
+  
+  // async
   currencyConverter?: CurrencyConverterSchema;
-  recentRates?: ResentRatesSchema;
 
   searchFromCurrency?: SearchCurrencySchema;
   searchBaseCurrency?: SearchCurrencySchema;

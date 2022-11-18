@@ -13,11 +13,7 @@ interface RecentRatesListProps {
 }
 
 export const RecentRatesList = memo(
-  ({
-    currencyList,
-    recentRates,
-    yesterdayRates,
-  }: RecentRatesListProps) => {
+  ({ currencyList, recentRates, yesterdayRates }: RecentRatesListProps) => {
     const inputValue = useSelector(getRecentRatesInputValue);
 
     const searchedCurrency = useMemo(() => {

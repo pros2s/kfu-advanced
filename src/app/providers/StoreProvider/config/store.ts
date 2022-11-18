@@ -6,6 +6,7 @@ import {
 } from '@reduxjs/toolkit';
 import { NavigateOptions, To } from 'react-router-dom';
 import { $api } from 'shared/api/api';
+import { ResentRatesReducer } from 'widgets/RecentRates';
 import { createReducerManager } from './reducerManager';
 import { StateSchema } from './StateSchema';
 
@@ -16,6 +17,7 @@ export function createReduxStore(
 ) {
   const rootReducer: Reducer<StateSchema> | ReducersMapObject<StateSchema> = {
     ...asyncReducers,
+    recentRates: ResentRatesReducer,
   };
 
   const reducerManager = createReducerManager(rootReducer);

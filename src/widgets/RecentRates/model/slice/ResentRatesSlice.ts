@@ -11,8 +11,8 @@ const initialState: ResentRatesSchema = {
   isLoading: false,
   recentRatesDate: '',
   errorMessage: '',
-  yesterdayRates: undefined,
-  recentRates: undefined,
+  yesterdayRates: {},
+  recentRates: {},
 };
 
 const resentRatesSlice = createSlice({
