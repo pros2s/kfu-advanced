@@ -4,6 +4,7 @@ import {
   Reducer,
   ReducersMapObject,
 } from '@reduxjs/toolkit';
+import { SymbolsReducer } from 'features/choseCurrency';
 import { NavigateOptions, To } from 'react-router-dom';
 import { $api } from 'shared/api/api';
 import { ResentRatesReducer } from 'widgets/RecentRates';
@@ -17,6 +18,7 @@ export function createReduxStore(
 ) {
   const rootReducer: Reducer<StateSchema> | ReducersMapObject<StateSchema> = {
     ...asyncReducers,
+    symbols: SymbolsReducer,
     recentRates: ResentRatesReducer,
   };
 

@@ -5,6 +5,7 @@ import {
   ChoseToCurrencyActions,
   fetchRate,
   fetchSymbols,
+  getSymbols,
 } from 'features/choseCurrency';
 import {
   KeyboardEvent,
@@ -37,7 +38,6 @@ import {
   getConverterInputValue,
   getConverterIsLoading,
   getConverterRate,
-  getCurrencyList,
 } from '../model/selectors/getAllCurrencyConverter';
 
 import {
@@ -57,7 +57,7 @@ export const CurrencyConverter = memo(() => {
 
   const [result, setResult] = useState<number>(0);
 
-  const currencyList = useSelector(getCurrencyList);
+  const currencyList = useSelector(getSymbols);
   const errorMessage = useSelector(getConverterError);
   const isLoading = useSelector(getConverterIsLoading);
   const inputValue = useSelector(getConverterInputValue);

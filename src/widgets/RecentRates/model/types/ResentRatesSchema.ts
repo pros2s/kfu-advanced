@@ -1,5 +1,3 @@
-import { CurrencyName } from 'features/choseCurrency';
-
 export interface ResentRatesParams {
   date?: string;
   base?: string;
@@ -12,5 +10,4 @@ export interface ResentRatesSchema {
   recentRates: Record<string, number>;
   yesterdayRates: Record<string, number>;
   isLoading: boolean;
-  data: CurrencyName[];
 }

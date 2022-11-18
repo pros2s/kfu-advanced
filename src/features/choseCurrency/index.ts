@@ -23,3 +23,7 @@ export { getBaseCurrentCurrency } from './model/selectors/getAllBaseCurrency';
 
 export { fetchRate } from './model/services/fetchRate';
 export { fetchSymbols } from './model/services/fetchSymbols';
+
+export { SymbolsReducer } from './model/slice/SymnolsSlice';
+export { SymbolsSchema } from './model/types/SymbolsSchema';
+export { getSymbols } from './model/selectors/getSymbols';

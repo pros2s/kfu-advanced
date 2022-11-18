@@ -1,12 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { CurrencyName, fetchSymbols } from 'features/choseCurrency';
 import { fetchYesterdayRates } from '../services/fetchYesterdayRates';
 import { fetchRecentRates } from '../services/fetchRecentRates';
 
 import { ResentRatesSchema } from '../types/ResentRatesSchema';
 
 const initialState: ResentRatesSchema = {
-  data: [],
   inputValue: '',
   isLoading: false,
   recentRatesDate: '',
@@ -28,32 +26,6 @@ const resentRatesSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchSymbols.pending, (state) => {
-        state.errorMessage = '';
-        state.isLoading = true;
-      })
-      .addCase(
-        fetchSymbols.fulfilled,
-        (state, { payload }: PayloadAction<CurrencyName[]>) => {
-          state.data = payload.sort((elem) => {
-            if (
-              elem.abbr === 'rub' ||
-              elem.abbr === 'eur' ||
-              elem.abbr === 'usd' ||
-              elem.abbr === 'gbp'
-            ) {
-              return -1;
-            }
-            return 1;
-          });
-          state.errorMessage = '';
-          state.isLoading = false;
-        },
-      )
-      .addCase(fetchSymbols.rejected, (state, { payload }) => {
-        state.errorMessage = payload;
-        state.isLoading = false;
-      })
       .addCase(fetchRecentRates.pending, (state) => {
         state.errorMessage = '';
         state.isLoading = true;

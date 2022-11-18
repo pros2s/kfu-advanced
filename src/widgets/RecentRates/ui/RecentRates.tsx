@@ -4,6 +4,7 @@ import {
   ChoseBaseCurrencyActions,
   fetchSymbols,
   getBaseCurrentCurrency,
+  getSymbols,
 } from 'features/choseCurrency';
 import { memo, useEffect, useCallback } from 'react';
 import { useSelector } from 'react-redux';
@@ -16,7 +17,6 @@ import {
   getRecentRates,
   getRecentRatesDate,
   getRecentRatesInputValue,
-  getRecentRatesList,
   getYesterDayRates,
 } from '../model/selectors/getAllRecentRates';
 import { ResentRatesActions } from '../model/slice/ResentRatesSlice';
@@ -28,7 +28,7 @@ export const RecentRates = memo(() => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
 
-  const currencyList = useSelector(getRecentRatesList);
+  const currencyList = useSelector(getSymbols);
   const recentRates = useSelector(getRecentRates);
   const yesterdayRates = useSelector(getYesterDayRates);
   const recentRatesDate = useSelector(getRecentRatesDate);
