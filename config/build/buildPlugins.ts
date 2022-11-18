@@ -4,6 +4,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import path from 'path';
 import { BuildOptions } from './types/config';
 
 export const buildPlugins = ({
@@ -15,6 +16,15 @@ export const buildPlugins = ({
   const plugins = [
     new HtmlWebpackPlugin({
       template: paths.html,
+      favicon: path.resolve(
+        __dirname,
+        '..',
+        '..',
+        'src',
+        'shared',
+        'assets',
+        'favicon.ico',
+      ),
     }),
     new webpack.ProgressPlugin(),
     new MiniCssExtractPlugin({
