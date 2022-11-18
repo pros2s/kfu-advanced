@@ -8,6 +8,7 @@
 .currencyLists {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .input {
@@ -56,7 +57,7 @@
     color: var(--primary-color);
   }
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 800px) {
     width: 200px;
     margin: 0 5px;
     margin-bottom: -10px;
@@ -82,24 +83,44 @@
   @media screen and (max-width: 1000px) {
     padding: 0;
   }
+
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+  }
 }
 
 .result {
-  @media screen and (max-width: 600px) {
-    font: var(--font-s);
+  h1 {
+    font-size: 28px;
+
+    @media screen and (max-width: 600px) {
+      font-size: 24px;
+    }
   }
 
   h3 {
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 
     font: var(--font-m);
+    font-size: 18px;
+
+    @media screen and (max-width: 600px) {
+      margin-bottom: 10px;
+
+      font-size: 16px;
+    }
   }
 
   p {
     margin-top: 3px;
 
     color: #767676;
-    font: var(--font-s);
+    font: var(--font-m);
+    font-size: 18px;
+
+    @media screen and (max-width: 600px) {
+      font-size: 16px;
+    }
   }
 
   @media screen and (max-width: 1000px) {

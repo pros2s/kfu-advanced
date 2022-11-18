@@ -1,7 +1,8 @@
 .curList {
   position: absolute;
+  z-index: 1;
 
-  width: 220px;
+  width: 280px;
   height: 0;
   overflow-y: auto;
 
@@ -41,7 +42,7 @@
 
 .curName {
   display: flex;
-  width: 208px;
+  width: 100%;
 
   padding: 5px 10px;
 
@@ -55,7 +56,8 @@
   }
 
   &.top {
-    box-shadow: 0 0 1px 0 rgb(255 255 255 / 70%);
+    font-weight: 500;
+    font-size: 17px;
   }
 
   &:hover,

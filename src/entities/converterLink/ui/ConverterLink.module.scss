@@ -1,0 +1,11 @@
+.converterLink {
+  display: flex;
+  align-items: center;
+  height: 30px;
+
+  transition: all 0.2s linear;
+
+  &:hover {
+    color: var(--primary-color);
+  }
+}

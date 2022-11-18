@@ -1,0 +1,23 @@
+.choseInput {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  @media screen and (max-width: 600px) {
+    justify-content: center;
+  }
+}
+
+.label {
+  margin-bottom: 7px;
+
+  font-weight: 500;
+  font-size: 17px;
+}
+
+.input {
+  width: 280px;
+  max-width: none;
+  height: 40px;
+}

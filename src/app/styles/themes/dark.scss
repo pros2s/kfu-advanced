@@ -1,11 +1,14 @@
 .app_dark_theme {
   --bg-color: rgb(34 34 34);
   --inner-bg-color: #292929;
+  --elem-bg-color: rgb(45 45 45);
   --primary-color: rgb(237 237 237);
   --secondary-color: rgb(179 179 179);
   --error-title: rgb(255 52 52);
   --error-text: rgb(216 37 37);
   --active-color: rgb(83 82 82);
+  --positive-number-color: rgb(32 188 164);
+  --negative-number-color: rgb(230 75 96);
 
   // Theme switcher
   --switcher-color: rgb(255 234 0);

@@ -123,7 +123,7 @@ export const CurrencyConverter = memo(() => {
         <section className={cls.tools}>
           <div>
             <h3 className={cls.label}>{t('convert')}</h3>
-            <div className={cls.input}>
+            <div className='input'>
               <Input
                 placeholder={t('amount')}
                 value={inputValue}
@@ -156,7 +156,7 @@ export const CurrencyConverter = memo(() => {
           <div className={cls.result}>
             <h3>{`${inputValue} ${fromCurrentCur?.description}s =`}</h3>
             <h1>{`${result.toFixed(2)} ${toCurrentCur?.description}s`}</h1>
-            <p>{`1.00 ${fromCurrentCur?.abbr.toUpperCase()} = ${result.toFixed(
+            <p>{`1.00 ${fromCurrentCur?.abbr.toUpperCase()} = ${rate?.toFixed(
               2,
             )} ${toCurrentCur?.abbr.toUpperCase()}`}</p>
           </div>

@@ -17,4 +17,8 @@
     text-align: center;
     vertical-align: text-bottom;
   }
+
+  &:active {
+    transform: scale(0.8);
+  }
 }

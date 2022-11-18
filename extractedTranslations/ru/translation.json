@@ -42,6 +42,7 @@
   "Profilecurrency": "",
   "SERVER_ERROR": "",
   "SaveProfileChanges": "",
+  "Search": "",
   "ShortLanguage": "",
   "Your text": "",
   "aboutPageBTN": "",
@@ -50,9 +51,12 @@
   "articlesPageBTN": "",
   "articlesPageText": "",
   "chooseCurrency": "",
+  "choseBaseCurrency": "",
   "convert": "",
+  "currency": "",
   "from": "",
   "fromCurrency": "",
+  "goConverter": "",
   "i18n": {
     "t(": ""
   },
@@ -65,12 +69,17 @@
   "pageError": "",
   "profilePageBTN": "",
   "profilePageText": "",
+  "rateOfChangePerDay": "",
   "recentRates": "",
+  "search": "",
+  "searchCur": "",
+  "searchRate": "",
   "symbolsError": "",
   "to": "",
   "toCurrency": "",
   "{$}": "",
   "{}": "",
   "Ввод": "",
-  "Ввод>": ""
+  "Ввод>": "",
+  "Вернуться к конвертеру": ""
 }

@@ -45,7 +45,10 @@ export const CurrencyBaseMenu = memo(
           <Button
             className={classNames(cls.curName, [], {
               [cls.top]:
-                cur.abbr === 'rub' || cur.abbr === 'usd' || cur.abbr === 'gbp',
+                cur.abbr === 'rub' ||
+                cur.abbr === 'eur' ||
+                cur.abbr === 'usd' ||
+                cur.abbr === 'gbp',
             })}
             key={cur.abbr + cur.description}
             onClick={() => setNewCurrency(cur)}

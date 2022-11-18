@@ -7,15 +7,13 @@ import {
   DynamicReducerLoader,
   ReducersList,
 } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
-import {
-  getBaseCurrentCurrency,
-  getIsBaseCurMenu,
-} from '../model/selectors/getAllBaseCurrency';
+import { getIsBaseCurMenu } from '../model/selectors/getAllBaseCurrency';
 import { ChoseBaseCurrencyReducer } from '../model/slice/ChoseBaseCurrencySlice';
 import { CurrencyName } from '../model/types/Currency';
 
 interface ChoseBaseCurrencyProps {
   currencyList?: CurrencyName[];
+  currentCurrency?: CurrencyName;
 }
 
 const reducers: ReducersList = {
@@ -23,8 +21,7 @@ const reducers: ReducersList = {
 };
 
 export const ChoseBaseCurrency = memo(
-  ({ currencyList }: ChoseBaseCurrencyProps) => {
-    const currentCurrency = useSelector(getBaseCurrentCurrency);
+  ({ currencyList, currentCurrency }: ChoseBaseCurrencyProps) => {
     const isCurMenu = useSelector(getIsBaseCurMenu);
 
     return (

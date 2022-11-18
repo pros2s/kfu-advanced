@@ -38,6 +38,7 @@ const currencyConverterSlice = createSlice({
           state.data = payload.sort((elem) => {
             if (
               elem.abbr === 'rub' ||
+              elem.abbr === 'eur' ||
               elem.abbr === 'usd' ||
               elem.abbr === 'gbp'
             ) {

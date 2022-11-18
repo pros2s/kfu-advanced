@@ -44,7 +44,13 @@ export const CurrencyToMenu = memo(
       <div className={classNames(cls.curList, [], { [cls.shown]: isCurMenu })}>
         {searchedCurrency?.map((cur) => (
           <Button
-            className={cls.curName}
+            className={classNames(cls.curName, [], {
+              [cls.top]:
+                cur.abbr === 'rub' ||
+                cur.abbr === 'eur' ||
+                cur.abbr === 'usd' ||
+                cur.abbr === 'gbp',
+            })}
             key={cur.abbr + cur.description}
             onClick={() => setNewCurrency(cur)}
             theme={ButtonThemes.CLEAR}

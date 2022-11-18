@@ -1,5 +1,5 @@
 {
-  "Language": "Рус",
+  "Language": "Русский",
   "notFoundPage": "Страница не найдена",
   "pageError": "Что-то пошло не так на этой странице",
   "chooseCurrency": "Выберите валюту",
@@ -8,5 +8,10 @@
   "fromCurrency": "С валюты",
   "toCurrency": "В валюту",
   "amount": "Сумма",
-  "recentRates": "Смотреть свежие курсы"
+  "recentRates": "Смотреть свежий курс валют",
+  "searchCur": "Найти валюту",
+  "search": "Поиск",
+  "choseBaseCurrency": "Выбрать базовую валюту",
+  "goConverter": "Верунться к конвертеру",
+  "rateOfChangePerDay": "Коэфф. изменения за день"
 }
