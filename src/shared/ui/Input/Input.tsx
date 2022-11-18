@@ -51,7 +51,7 @@ export const Input = memo(
           placeholder={placeholder}
           ref={inputRef}
           className={cls.input}
-          value={value}
+          value={value ?? ''}
           onChange={changeHandler}
           type={type}
           {...otherProps}
