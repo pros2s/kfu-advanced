@@ -17,6 +17,14 @@
     box-shadow: 0 0 5px 0 rgb(0 0 0 / 50%);
     transform: scale(0.98);
   }
+
+  @media screen and (max-width: 600px) {
+    width: 320px;
+  }
+
+  @media screen and (max-width: 400px) {
+    width: 240px;
+  }
 }
 
 .button {

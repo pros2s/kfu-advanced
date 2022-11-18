@@ -39,7 +39,7 @@ body {
   }
 
   @media screen and (max-width: 400px) {
-    width: 365px;
+    width: 320px;
   }
 }
 
@@ -87,6 +87,19 @@ body {
   &:active {
     box-shadow: 0 0 5px 0 rgb(0 0 0 / 50%);
     transform: scale(0.98);
+  }
+
+  @media screen and (max-width: 800px) {
+    margin-right: 0;
+  }
+
+  @media screen and (max-width: 600px) {
+    width: 320px;
+    margin-right: 0;
+  }
+
+  @media screen and (max-width: 400px) {
+    width: 240px;
   }
 }
 

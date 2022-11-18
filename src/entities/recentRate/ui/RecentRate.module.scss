@@ -52,7 +52,7 @@
   }
 
   @media screen and (max-width: 400px) {
-    width: 240px;
+    width: 200px;
   }
 }
 
@@ -118,7 +118,7 @@
   }
 
   @media screen and (max-width: 400px) {
-    width: 100px;
+    width: 80px;
   }
 }
 
@@ -137,6 +137,10 @@
 
   @media screen and (max-width: 800px) {
     text-align: center;
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 80px;
   }
 }
 
