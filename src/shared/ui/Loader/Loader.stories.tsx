@@ -15,8 +15,15 @@ export default {
 const Template: ComponentStory<typeof Loader> = (args) => <Loader {...args} />;
 
 export const Light = Template.bind({});
-Light.args = {};
+Light.args = { borderWidth: '5px', size: '30px' };
 
 export const Dark = Template.bind({});
 Dark.decorators = [ThemeDecorator(Themes.DARK)];
-Dark.args = {};
+Dark.args = { borderWidth: '5px', size: '30px' };
+
+export const LargeLight = Template.bind({});
+LargeLight.args = { borderWidth: '15px', size: '100px' };
+
+export const LargeDark = Template.bind({});
+LargeDark.decorators = [ThemeDecorator(Themes.DARK)];
+LargeDark.args = { borderWidth: '15px', size: '100px' };

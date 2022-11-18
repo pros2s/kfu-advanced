@@ -1,2 +1,2 @@
-export { RecentRatesList } from './ui/recentRatesList';
+export { RecentRatesList } from './ui/RecentRatesList';
 

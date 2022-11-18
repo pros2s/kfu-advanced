@@ -1,17 +1,17 @@
 export { ChoseCurrencySchema, CurrencyName } from './model/types/Currency';
-export { ChoseToCurrency } from './ui/ChoseToCurrency';
+export { ChoseToCurrency } from './ui/ChoseToCurrency/ChoseToCurrency';
 export {
   ChoseToCurrencyActions,
   ChoseToCurrencyReducer,
 } from './model/slice/ChoseToCurrencySlice';
 
-export { ChoseFromCurrency } from './ui/ChoseFromCurrency';
+export { ChoseFromCurrency } from './ui/ChoseFromCurrency/ChoseFromCurrency';
 export {
   ChoseFromCurrencyActions,
   ChoseFromCurrencyReducer,
 } from './model/slice/ChoseFromCurrencySlice';
 
-export { ChoseBaseCurrency } from './ui/ChoseBaseCurrency';
+export { ChoseBaseCurrency } from './ui/ChoseBaseCurrency/ChoseBaseCurrency';
 export {
   ChoseBaseCurrencyActions,
   ChoseBaseCurrencyReducer,

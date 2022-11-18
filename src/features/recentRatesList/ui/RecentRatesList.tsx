@@ -8,7 +8,6 @@ import { getRecentRatesInputValue } from 'widgets/RecentRates/model/selectors/ge
 
 interface RecentRatesListProps {
   currencyList?: CurrencyName[];
-  // currentCurrency?: CurrencyName;
   recentRates?: Record<string, number>;
   yesterdayRates?: Record<string, number>;
 }
@@ -16,7 +15,6 @@ interface RecentRatesListProps {
 export const RecentRatesList = memo(
   ({
     currencyList,
-    // currentCurrency,
     recentRates,
     yesterdayRates,
   }: RecentRatesListProps) => {

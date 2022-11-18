@@ -79,10 +79,12 @@ export const CurrencyConverter = memo(() => {
   }, [inputValue, rate]);
 
   useEffect(() => {
-    dispatch(fetchSymbols());
-    dispatch(ChoseFromCurrencyActions.setDefaultFromCurrentCurrency());
-    dispatch(ChoseToCurrencyActions.setDefaultToCurrentCurrency());
-    dispatch(CurrencyConverterActions.setDefaultInputValue());
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchSymbols());
+      dispatch(ChoseFromCurrencyActions.setDefaultFromCurrentCurrency());
+      dispatch(ChoseToCurrencyActions.setDefaultToCurrentCurrency());
+      dispatch(CurrencyConverterActions.setDefaultInputValue());
+    }
   }, [dispatch]);
 
   useEffect(() => {
