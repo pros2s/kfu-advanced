@@ -7,7 +7,7 @@ export const fetchRate = createAsyncThunk<
   ConvertParams,
   ThunkConfig<string>
 >(
-  'currencyConverter/fetchRate',
+  'choseCurrency/fetchRate',
   async ({ from, to }, { rejectWithValue, extra }) => {
     try {
       const response = await extra.api.get(

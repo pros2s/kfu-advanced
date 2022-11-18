@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
+import { ResentRatesActions } from '../slice/ResentRatesSlice';
 import { ResentRatesParams } from '../types/ResentRatesSchema';
 
 export const fetchRecentRates = createAsyncThunk<
@@ -7,8 +8,8 @@ export const fetchRecentRates = createAsyncThunk<
   ResentRatesParams,
   ThunkConfig<string>
 >(
-  'currencyConverter/fetchRecentRates',
-  async ({ base }, { rejectWithValue, extra }) => {
+  'recentRates/fetchRecentRates',
+  async ({ base }, { rejectWithValue, extra, dispatch }) => {
     try {
       const response = await extra.api.get(
         `/latest/currencies/${base}.min.json`,
@@ -18,7 +19,10 @@ export const fetchRecentRates = createAsyncThunk<
         throw new Error();
       }
 
-      return Object.values(response.data)[1] as Record<string, number>;
+      const values = Object.values(response.data);
+      dispatch(ResentRatesActions.setRecentRatesDate(values[0] as string));
+
+      return values[1] as Record<string, number>;
     } catch (e) {
       return rejectWithValue('error');
     }

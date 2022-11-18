@@ -15,13 +15,13 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Input } from 'shared/ui/Input/Input';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { fetchYesterdayRates } from '../model/services/fetchYesterdayRates';
 import { fetchRecentRates } from '../model/services/fetchRecentRates';
 import {
   getRecentRates,
+  getRecentRatesDate,
   getRecentRatesInputValue,
   getRecentRatesList,
-  getYesterdayRates,
+  getYesterDayRates,
 } from '../model/selectors/getAllRecentRates';
 import {
   ResentRatesActions,
@@ -29,6 +29,7 @@ import {
 } from '../model/slice/ResentRatesSlice';
 
 import cls from './RecentRates.module.scss';
+import { fetchYesterdayRates } from '../model/services/fetchYesterdayRates';
 
 const reducers: ReducersList = {
   recentRates: ResentRatesReducer,
@@ -39,18 +40,24 @@ export const RecentRates = memo(() => {
   const dispatch = useAppDispatch();
 
   const currencyList = useSelector(getRecentRatesList);
-  const yesterdayRates = useSelector(getYesterdayRates);
-
   const recentRates = useSelector(getRecentRates);
+  const yesterdayRates = useSelector(getYesterDayRates);
+  const recentRatesDate = useSelector(getRecentRatesDate);
+
   const currentCurrency = useSelector(getBaseCurrentCurrency);
   const inputValue = useSelector(getRecentRatesInputValue);
 
   useEffect(() => {
     dispatch(fetchSymbols());
-    dispatch(fetchYesterdayRates({ base: currentCurrency?.abbr }));
-    dispatch(fetchRecentRates({ base: currentCurrency?.abbr }));
     dispatch(ChoseBaseCurrencyActions.setDefaultBaseCurrentCurrency());
-  }, [currentCurrency?.abbr, dispatch]);
+    dispatch(fetchRecentRates({ base: currentCurrency?.abbr }));
+    dispatch(
+      fetchYesterdayRates({
+        base: currentCurrency?.abbr,
+        date: recentRatesDate,
+      }),
+    );
+  }, [currentCurrency?.abbr, dispatch, recentRatesDate]);
 
   const onChangeInput = useCallback(
     (val: string) => {
@@ -80,13 +87,12 @@ export const RecentRates = memo(() => {
             />
           </div>
         </div>
-        {recentRates && (
-          <RecentRatesList
-            currencyList={currencyList}
-            recentRates={recentRates}
-            yesterdayRates={yesterdayRates}
-          />
-        )}
+        <RecentRatesList
+          currencyList={currencyList}
+          recentRates={recentRates}
+          yesterdayRates={yesterdayRates}
+          // currentCurrency={currentCurrency}
+        />
       </section>
     </DynamicReducerLoader>
   );

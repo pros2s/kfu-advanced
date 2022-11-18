@@ -6,9 +6,13 @@ export const getRecentRatesError = (state: StateSchema) =>
   state.recentRates?.errorMessage;
 export const getRecentRatesIsLoading = (state: StateSchema) =>
   state.recentRates?.isLoading;
-export const getRecentRates = (state: StateSchema) =>
-  state.recentRates?.recetRates;
+
 export const getRecentRatesInputValue = (state: StateSchema) =>
   state.recentRates?.inputValue;
-export const getYesterdayRates = (state: StateSchema) =>
+
+export const getRecentRates = (state: StateSchema) =>
+  state.recentRates?.recentRates;
+export const getYesterDayRates = (state: StateSchema) =>
   state.recentRates?.yesterdayRates;
+export const getRecentRatesDate = (state: StateSchema) =>
+  state.recentRates?.recentRatesDate;

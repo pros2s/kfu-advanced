@@ -37,10 +37,10 @@ export const RecentRate = memo(
             currencyName.abbr === 'gbp',
         })}
       >
-        <p className={cls.first}>
-          {`${currencyName.description}`}
+        <div className={cls.first}>
+          <p>{`${currencyName.description}`}</p>
           <span> {currencyName.abbr.toUpperCase()}</span>
-        </p>
+        </div>
         <p
           className={classNames(cls.second, [], {
             [cls.positive]: differenceRates >= 0,

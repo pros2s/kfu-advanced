@@ -1,12 +1,22 @@
 .app_light_theme {
   --bg-color: rgb(219 219 219);
-  --primary-color: rgb(49 49 49);
-  --secondary-color: rgb(93 93 93);
-  --error-title: rgb(255 0 0);
-  --error-text: rgb(217 0 0);
   --inner-bg-color: #e8e8e8;
   --elem-bg-color: #f2f2f2;
+
+  // fonts
+  --primary-color: rgb(49 49 49);
+  --secondary-color: rgb(93 93 93);
+
+  // errors
+  --error-title: rgb(255 0 0);
+  --error-text: rgb(217 0 0);
+
+  // hover
   --active-color: rgb(164 164 164);
+  --rate-hover-bg-color: #404040;
+  --rate-hover-color: #fff;
+
+  // rates
   --positive-number-color: rgb(31 172 148);
   --negative-number-color: rgb(216 0 0);
 

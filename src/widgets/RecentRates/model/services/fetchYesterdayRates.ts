@@ -8,11 +8,12 @@ export const fetchYesterdayRates = createAsyncThunk<
   ResentRatesParams,
   ThunkConfig<string>
 >(
-  'currencyConverter/fetchYesterdayRates',
-  async ({ base }, { rejectWithValue, extra }) => {
-    const date = new Date();
-    date.setDate(date.getDate() - 1);
-    const isoDate = dateFormat(date, 'isoDate');
+  'recentRates/fetchYesterdayRates',
+  async ({ base, date }, { rejectWithValue, extra }) => {
+    const newDate = new Date(date!);
+
+    newDate.setDate(newDate.getDate() - 1);
+    const isoDate = dateFormat(newDate, 'isoDate');
 
     try {
       const response = await extra.api.get(

@@ -9,9 +9,10 @@ const initialState: ResentRatesSchema = {
   data: [],
   inputValue: '',
   isLoading: false,
+  recentRatesDate: '',
   errorMessage: '',
-  recetRates: undefined,
   yesterdayRates: undefined,
+  recentRates: undefined,
 };
 
 const resentRatesSlice = createSlice({
@@ -20,6 +21,9 @@ const resentRatesSlice = createSlice({
   reducers: {
     setInputValue(state, { payload }: PayloadAction<string>) {
       state.inputValue = payload;
+    },
+    setRecentRatesDate(state, { payload }: PayloadAction<string>) {
+      state.recentRatesDate = payload;
     },
   },
   extraReducers: (builder) => {
@@ -57,7 +61,7 @@ const resentRatesSlice = createSlice({
       .addCase(
         fetchRecentRates.fulfilled,
         (state, { payload }: PayloadAction<Record<string, number>>) => {
-          state.recetRates = payload;
+          state.recentRates = payload;
           state.errorMessage = '';
           state.isLoading = false;
         },

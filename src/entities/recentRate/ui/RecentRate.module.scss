@@ -21,19 +21,31 @@
 }
 
 .first {
-  width: 316px;
+  display: flex;
+  width: 260px;
+
+  p {
+    max-width: 250px;
+    margin-right: 10px;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+  }
 
   span {
     color: var(--active-color);
   }
 
   @media screen and (max-width: 800px) {
+    justify-content: center;
+    width: 316px;
     margin-bottom: 10px;
-
-    text-align: center;
   }
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 600px) {
     width: 280px;
   }
 
@@ -64,17 +76,17 @@
 
   &::after {
     top: -30px;
-    right: -80px;
+    right: -85px;
 
     width: 220px;
     height: 26px;
 
-    color: #fff;
+    color: var(--rate-hover-color);
     font-weight: 400;
     font-size: 16px;
     text-align: center;
 
-    background-color: #404040;
+    background-color: var(--rate-hover-bg-color);
 
     border-radius: 5px;
 
@@ -85,7 +97,7 @@
     top: -4px;
     right: 20px;
 
-    border-color: #404040 transparent transparent;
+    border-color: var(--rate-hover-bg-color) transparent transparent;
     border-style: solid;
     border-width: 7px 6px 0;
 
@@ -117,7 +129,7 @@
 }
 
 .third {
-  width: 120px;
+  width: 130px;
 
   text-align: right;
 
