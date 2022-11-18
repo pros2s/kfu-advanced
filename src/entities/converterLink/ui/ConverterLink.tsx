@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 import { RoutesPaths } from 'shared/lib/routes/routes';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 
-import cls from './converterLink.module.scss';
+import cls from './ConverterLink.module.scss';
 
 export const ConverterLink = memo(() => {
   const { pathname } = useLocation();

@@ -6,7 +6,7 @@ import { RoutesProvieder } from 'app/providers/RoutesProvider';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
-import { ConverterLink } from 'entities/converterLink/ui/converterLink';
+import { ConverterLink } from 'entities/converterLink';
 
 const App = memo(() => {
   const { theme } = useThemes();
