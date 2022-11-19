@@ -59,6 +59,7 @@
   "from": "",
   "fromCurrency": "",
   "goConverter": "",
+  "goConverterSmall": "",
   "i18n": {
     "t(": ""
   },
@@ -76,6 +77,7 @@
   "search": "",
   "searchCur": "",
   "searchRate": "",
+  "smallLanguage": "",
   "symbolsError": "",
   "to": "",
   "toCurrency": "",

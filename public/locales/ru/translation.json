@@ -14,5 +14,7 @@
   "choseBaseCurrency": "Выбрать базовую валюту",
   "goConverter": "Назад к конвертеру",
   "rateOfChangePerDay": "Коэфф. изменения за день",
-  "currencyError": "Валюта не найдена"
+  "currencyError": "Валюта не найдена",
+  "smallLanguage": "Rus",
+  "goConverterSmall": "К конвертеру"
 }

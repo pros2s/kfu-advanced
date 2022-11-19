@@ -54,6 +54,14 @@
   @media screen and (max-width: 420px) {
     width: 200px;
   }
+
+  @media screen and (max-width: 310px) {
+    width: 175px;
+  }
+
+  @media screen and (max-width: 290px) {
+    width: 155px;
+  }
 }
 
 .second {
@@ -150,7 +158,7 @@
   font-weight: 600;
   font-size: 20px;
 
-  box-shadow: 0 0 5px 0 rgb(0 0 0);
+  box-shadow: 0 0 10px 0 rgb(0 0 0 / 90%);
 
   .first {
     font-weight: 500;

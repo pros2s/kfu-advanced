@@ -14,5 +14,7 @@
   "choseBaseCurrency": "Chose base currency",
   "goConverter": "Back to converter",
   "rateOfChangePerDay": "Rate of change per day",
-  "currencyError": "Currency not found"
+  "currencyError": "Currency not found",
+  "smallLanguage": "Eng",
+  "goConverterSmall": "To converter"
 }

@@ -39,7 +39,35 @@ body {
   }
 
   @media screen and (max-width: 420px) {
+    width: 385px;
+  }
+
+  @media screen and (max-width: 400px) {
+    width: 365px;
+  }
+
+  @media screen and (max-width: 380px) {
+    width: 345px;
+  }
+
+  @media screen and (max-width: 360px) {
+    width: 325px;
+  }
+
+  @media screen and (max-width: 340px) {
     width: 305px;
+  }
+
+  @media screen and (max-width: 330px) {
+    width: 285px;
+  }
+
+  @media screen and (max-width: 310px) {
+    width: 265px;
+  }
+
+  @media screen and (max-width: 290px) {
+    width: 235px;
   }
 }
 
@@ -91,6 +119,11 @@ body {
     padding-right: 14px;
     padding-left: 14px;
   }
+
+  @media screen and (max-width: 320px) {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
 }
 
 .input {
@@ -125,6 +158,18 @@ body {
 
   @media screen and (max-width: 420px) {
     width: 230px;
+  }
+
+  @media screen and (max-width: 330px) {
+    width: 210px;
+  }
+
+  @media screen and (max-width: 310px) {
+    width: 190px;
+  }
+
+  @media screen and (max-width: 290px) {
+    width: 170px;
   }
 }
 
