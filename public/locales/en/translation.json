@@ -1,5 +1,5 @@
 {
-  "Language": "English",
+  "Language": "Русский",
   "notFoundPage": "Page not found",
   "pageError": "Something went wrong on this page",
   "chooseCurrency": "Chose currency",
@@ -15,6 +15,6 @@
   "goConverter": "Back to converter",
   "rateOfChangePerDay": "Rate of change per day",
   "currencyError": "Currency not found",
-  "smallLanguage": "Eng",
+  "smallLanguage": "Рус",
   "goConverterSmall": "To converter"
 }

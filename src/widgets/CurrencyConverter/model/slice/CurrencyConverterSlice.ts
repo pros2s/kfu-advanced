@@ -10,6 +10,8 @@ const initialState: CurrencyConverterSchema = {
   rateResult: undefined,
   isLoading: false,
   errorMessage: '',
+  result: 0,
+  isFlipped: false,
 };
 
 const currencyConverterSlice = createSlice({
@@ -23,6 +25,12 @@ const currencyConverterSlice = createSlice({
     setDefaultInputValue(state) {
       const localeStorageValue = localStorage.getItem(LOCALSTORAGE_INPUT_VALUE);
       state.inputValue = localeStorageValue || '1.00';
+    },
+    setResult(state, { payload }: PayloadAction<number>) {
+      state.result = payload;
+    },
+    setIsFlipped(state, { payload }: PayloadAction<boolean>) {
+      state.isFlipped = payload;
     },
   },
   extraReducers: (builder) => {

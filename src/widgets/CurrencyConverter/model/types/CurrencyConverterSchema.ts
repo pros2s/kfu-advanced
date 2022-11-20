@@ -3,4 +3,6 @@ export interface CurrencyConverterSchema {
   errorMessage?: string;
   rateResult?: number;
   isLoading: boolean;
+  result: number;
+  isFlipped: boolean;
 }

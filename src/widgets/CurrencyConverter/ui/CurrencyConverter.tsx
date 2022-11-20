@@ -7,14 +7,7 @@ import {
   fetchSymbols,
   getSymbols,
 } from 'features/choseCurrency';
-import {
-  KeyboardEvent,
-  memo,
-  ReactNode,
-  useCallback,
-  useEffect,
-  useState,
-} from 'react';
+import { KeyboardEvent, memo, ReactNode, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { CgArrowsExchange } from 'react-icons/cg';
@@ -37,11 +30,14 @@ import {
   SearchFromCurrencyActions,
   SearchToCurrencyActions,
 } from 'entities/searchCurrency';
+import { classNames } from 'shared/lib/classNames/classNames';
 import {
   getConverterError,
   getConverterInputValue,
+  getConverterIsFlipped,
   getConverterIsLoading,
   getConverterRate,
+  getConverterResult,
 } from '../model/selectors/getAllCurrencyConverter';
 
 import {
@@ -59,8 +55,6 @@ export const CurrencyConverter = memo(() => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
 
-  const [result, setResult] = useState<number>(0);
-
   const currencyList = useSelector(getSymbols);
   const errorMessage = useSelector(getConverterError);
   const isLoading = useSelector(getConverterIsLoading);
@@ -69,6 +63,8 @@ export const CurrencyConverter = memo(() => {
   const toCurrentCur = useSelector(getToCurrentCurrency);
   const fromCurrentCur = useSelector(getFromCurrentCurrency);
   const rate = useSelector(getConverterRate);
+  const result = useSelector(getConverterResult);
+  const isFlipped = useSelector(getConverterIsFlipped);
 
   const inputChange = useCallback((event: KeyboardEvent<HTMLInputElement>) => {
     if (!/[0-9.]/.test(event.key)) {
@@ -78,9 +74,9 @@ export const CurrencyConverter = memo(() => {
 
   const onConvert = useCallback(() => {
     if (inputValue !== '' && rate) {
-      setResult(Number(inputValue) * rate);
+      dispatch(CurrencyConverterActions.setResult(Number(inputValue) * rate));
     }
-  }, [inputValue, rate]);
+  }, [dispatch, inputValue, rate]);
 
   useEffect(() => {
     if (__PROJECT__ !== 'storybook') {
@@ -120,8 +116,9 @@ export const CurrencyConverter = memo(() => {
   const onExchange = useCallback(() => {
     dispatch(ChoseToCurrencyActions.setToCurrentCurrency(fromCurrentCur!));
     dispatch(ChoseFromCurrencyActions.setFromCurrentCurrency(toCurrentCur!));
+    dispatch(CurrencyConverterActions.setIsFlipped(!isFlipped));
     onConvert();
-  }, [dispatch, fromCurrentCur, onConvert, toCurrentCur]);
+  }, [dispatch, fromCurrentCur, isFlipped, onConvert, toCurrentCur]);
 
   let element: ReactNode;
   if (errorMessage) {
@@ -159,7 +156,9 @@ export const CurrencyConverter = memo(() => {
               theme={ButtonThemes.CLEAR}
               onClick={onExchange}
             >
-              <CgArrowsExchange />
+              <CgArrowsExchange
+                className={classNames('', [], { [cls.flipped]: isFlipped })}
+              />
             </Button>
             <div className={cls.to}>
               <h3 className={cls.label}>{t('toCurrency')}</h3>
@@ -179,7 +178,7 @@ export const CurrencyConverter = memo(() => {
               </span>
             </h3>
             <h1>
-              {`${result.toFixed(2)} `}
+              {`${result?.toFixed(2)} `}
               <span className={cls.currency}>
                 {!toCurrentCur
                   ? t('currencyError')
