@@ -27,7 +27,6 @@ const App = memo(() => {
           <RoutesProvieder />
         </div>
       </Suspense>
-
     </div>
   );
 });
