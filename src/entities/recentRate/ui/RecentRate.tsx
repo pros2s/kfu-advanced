@@ -57,14 +57,14 @@ export const RecentRate = memo(
             {`${differenceRates >= 0 ? '+' : ''}${differenceRates.toFixed(2)}%`}
           </p>
         )}
-        <p className={cls.third}>
+        <div className={cls.third}>
           {Number.isNaN(1 / currencyRecentRate) ? (
             <Loader size='20px' borderWidth='3px' />
           ) : (
             `${(1 / currencyRecentRate).toFixed(2)}`
           )}
           <span>{` ${baseCurrency?.abbr.toUpperCase()}`}</span>
-        </p>
+        </div>
       </li>
     );
   },

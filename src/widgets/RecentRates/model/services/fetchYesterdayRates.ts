@@ -17,6 +17,10 @@ export const fetchYesterdayRates = createAsyncThunk<
     const isoDate = dateFormat(newDate, 'isoDate');
 
     try {
+      if (!base) {
+        throw new Error();
+      }
+
       const response = await extra.api.get(
         `/${isoDate}/currencies/${base}.min.json`,
       );

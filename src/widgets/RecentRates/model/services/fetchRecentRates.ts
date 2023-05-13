@@ -12,6 +12,10 @@ export const fetchRecentRates = createAsyncThunk<
   'recentRates/fetchRecentRates',
   async ({ base }, { rejectWithValue, extra, dispatch }) => {
     try {
+      if (!base) {
+        throw new Error();
+      }
+
       const response = await extra.api.get(
         `/latest/currencies/${base}.min.json`,
       );
