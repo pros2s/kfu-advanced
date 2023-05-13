@@ -1,9 +1,10 @@
+import { memo, useMemo } from 'react';
+
 import { RecentRate } from 'entities/recentRate';
 import { CurrencyName } from 'features/choseCurrency';
-import { memo, useMemo } from 'react';
-import { useSelector } from 'react-redux';
-
 import Fuse from 'fuse.js';
+import { useSelector } from 'react-redux';
+import { v4 } from 'uuid';
 import { getRecentRatesInputValue } from 'widgets/RecentRates/model/selectors/getAllRecentRates';
 
 interface RecentRatesListProps {
@@ -31,7 +32,7 @@ export const RecentRatesList = memo(
       <ul>
         {searchedCurrency?.map((currency) => (
           <RecentRate
-            key={currency.description}
+            key={v4()}
             currencyRecentRate={recentRates![currency.abbr]}
             currencyYesterdayRate={yesterdayRates![currency.abbr]}
             currencyName={currency}

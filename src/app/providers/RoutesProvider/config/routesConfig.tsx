@@ -2,7 +2,6 @@ import { MainPage } from 'pages/mainPage';
 import { NotFoundPage } from 'pages/notFoundPage';
 import { RatesPage } from 'pages/ratesPage';
 import { RouteProps } from 'react-router-dom';
-
 import { AppRoutes, RoutesPaths } from 'shared/lib/routes/routes';
 
 export const routesConfig: Record<AppRoutes, RouteProps> = {

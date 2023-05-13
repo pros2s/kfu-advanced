@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { CurrencyName } from '../types/Currency';
-import { fetchSymbols } from '../services/fetchSymbols';
 
+import { fetchSymbols } from '../services/fetchSymbols';
+import { CurrencyName } from '../types/Currency';
 import { SymbolsSchema } from '../types/SymbolsSchema';
 
 const initialState: SymbolsSchema = {

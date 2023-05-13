@@ -1,10 +1,9 @@
+import { memo } from 'react';
+
 import { Themes, useThemes } from 'app/providers/ThemesProvider';
 import { MdLightMode, MdNightlight } from 'react-icons/md';
-
-import { Button, ButtonThemes } from 'shared/ui/Button/Button';
-
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo } from 'react';
+import { Button, ButtonThemes } from 'shared/ui/Button/Button';
 
 import cls from './ThemeSwitcher.module.scss';
 

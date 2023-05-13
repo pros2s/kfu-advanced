@@ -3,6 +3,7 @@ import {
   LOCALSTORAGE_BASE_CURRENT_CURRENCY_ABBR,
   LOCALSTORAGE_BASE_CURRENT_CURRENCY_DESC,
 } from 'shared/consts/localeStorage';
+
 import { ChoseCurrencySchema, CurrencyName } from '../types/Currency';
 
 const initialState: ChoseCurrencySchema = {

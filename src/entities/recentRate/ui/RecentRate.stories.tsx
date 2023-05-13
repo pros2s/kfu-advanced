@@ -3,8 +3,8 @@ import { Themes } from 'app/providers/ThemesProvider';
 import { ChoseBaseCurrencyReducer } from 'features/choseCurrency';
 import { StoreDecorator } from 'shared/config/storyBook/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storyBook/ThemeDecorator';
-
 import { ResentRatesReducer } from 'widgets/RecentRates';
+
 import { RecentRate } from './RecentRate';
 
 export default {

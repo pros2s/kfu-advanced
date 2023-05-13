@@ -1,12 +1,13 @@
-import { CurrencyBaseMenu } from 'entities/currencyMenu';
-import { SearchBaseCurrency } from 'entities/searchCurrency/ui/SearchBaseCurrency';
 import { memo } from 'react';
 
+import { CurrencyBaseMenu } from 'entities/currencyMenu';
+import { SearchBaseCurrency } from 'entities/searchCurrency/ui/SearchBaseCurrency';
 import { useSelector } from 'react-redux';
 import {
   DynamicReducerLoader,
   ReducersList,
 } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
+
 import { getIsBaseCurMenu } from '../../model/selectors/getAllBaseCurrency';
 import { ChoseBaseCurrencyReducer } from '../../model/slice/ChoseBaseCurrencySlice';
 import { CurrencyName } from '../../model/types/Currency';

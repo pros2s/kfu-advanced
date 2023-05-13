@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { fetchYesterdayRates } from '../services/fetchYesterdayRates';
-import { fetchRecentRates } from '../services/fetchRecentRates';
 
+import { fetchRecentRates } from '../services/fetchRecentRates';
+import { fetchYesterdayRates } from '../services/fetchYesterdayRates';
 import { ResentRatesSchema } from '../types/ResentRatesSchema';
 
 const initialState: ResentRatesSchema = {

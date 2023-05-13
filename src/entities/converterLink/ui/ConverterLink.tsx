@@ -1,8 +1,8 @@
 import { memo } from 'react';
+
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import { useSmallWidth } from 'shared/lib/hooks/useSmallWidth';
-
 import { RoutesPaths } from 'shared/lib/routes/routes';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 

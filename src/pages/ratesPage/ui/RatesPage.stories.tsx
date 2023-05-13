@@ -3,6 +3,7 @@ import { Themes } from 'app/providers/ThemesProvider';
 import { StoreDecorator } from 'shared/config/storyBook/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storyBook/ThemeDecorator';
 import { ResentRatesReducer } from 'widgets/RecentRates/model/slice/ResentRatesSlice';
+
 import RatesPage from './RatesPage';
 
 export default {

@@ -1,4 +1,5 @@
 import { FC, useState, useMemo } from 'react';
+
 import {
   LOCAL_STORAGE_THEME_KEY,
   Themes,

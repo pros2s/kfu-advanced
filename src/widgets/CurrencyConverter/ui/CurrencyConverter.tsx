@@ -1,3 +1,9 @@
+import { KeyboardEvent, memo, ReactNode, useCallback, useEffect } from 'react';
+
+import {
+  SearchFromCurrencyActions,
+  SearchToCurrencyActions,
+} from 'entities/searchCurrency';
 import {
   ChoseFromCurrency,
   ChoseFromCurrencyActions,
@@ -7,30 +13,24 @@ import {
   fetchSymbols,
   getSymbols,
 } from 'features/choseCurrency';
-import { KeyboardEvent, memo, ReactNode, useCallback, useEffect } from 'react';
+import { getFromCurrentCurrency } from 'features/choseCurrency/model/selectors/getAllFromCurrency';
+import { getToCurrentCurrency } from 'features/choseCurrency/model/selectors/getAllToCurrency';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
 import { CgArrowsExchange } from 'react-icons/cg';
-
+import { useSelector } from 'react-redux';
+import { classNames } from 'shared/lib/classNames/classNames';
 import {
   DynamicReducerLoader,
   ReducersList,
 } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { RoutesPaths } from 'shared/lib/routes/routes';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { Button, ButtonThemes } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Text, TextAlign, TextThemes } from 'shared/ui/Text/Text';
-import { getToCurrentCurrency } from 'features/choseCurrency/model/selectors/getAllToCurrency';
-import { getFromCurrentCurrency } from 'features/choseCurrency/model/selectors/getAllFromCurrency';
 
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { RoutesPaths } from 'shared/lib/routes/routes';
-import {
-  SearchFromCurrencyActions,
-  SearchToCurrencyActions,
-} from 'entities/searchCurrency';
-import { classNames } from 'shared/lib/classNames/classNames';
 import {
   getConverterError,
   getConverterInputValue,
@@ -39,7 +39,6 @@ import {
   getConverterRate,
   getConverterResult,
 } from '../model/selectors/getAllCurrencyConverter';
-
 import {
   CurrencyConverterActions,
   CurrencyConverterReducer,

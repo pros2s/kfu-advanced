@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
+
 import { ResentRatesActions } from '../slice/ResentRatesSlice';
 import { ResentRatesParams } from '../types/ResentRatesSchema';
 

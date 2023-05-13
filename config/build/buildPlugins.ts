@@ -1,10 +1,13 @@
 import webpack from 'webpack';
+
+import path from 'path';
+
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import CopyPlugin from 'copy-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
-import path from 'path';
+
 import { BuildOptions } from './types/config';
 
 export const buildPlugins = ({

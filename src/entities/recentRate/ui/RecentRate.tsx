@@ -1,5 +1,6 @@
-import { CurrencyName, getBaseCurrentCurrency } from 'features/choseCurrency';
 import { memo, useMemo } from 'react';
+
+import { CurrencyName, getBaseCurrentCurrency } from 'features/choseCurrency';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';

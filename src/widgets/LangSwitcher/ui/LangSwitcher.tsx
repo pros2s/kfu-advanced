@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
 
+import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useSmallWidth } from 'shared/lib/hooks/useSmallWidth';
 import { Button, ButtonThemes } from 'shared/ui/Button/Button';

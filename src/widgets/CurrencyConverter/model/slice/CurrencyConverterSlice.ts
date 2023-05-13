@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { fetchRate } from 'features/choseCurrency';
-
 import { LOCALSTORAGE_INPUT_VALUE } from 'shared/consts/localeStorage';
 
 import { CurrencyConverterSchema } from '../types/CurrencyConverterSchema';

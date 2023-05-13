@@ -1,4 +1,5 @@
 import { memo } from 'react';
+
 import { CurrencyConverter } from 'widgets/CurrencyConverter';
 
 import cls from './MainPage.module.scss';

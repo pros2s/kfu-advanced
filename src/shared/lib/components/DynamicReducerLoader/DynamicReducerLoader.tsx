@@ -1,9 +1,10 @@
+import { FC, ReactNode, useEffect } from 'react';
+
 import { Reducer } from '@reduxjs/toolkit';
 import {
   ReduxStoreWithManger,
   StateSchemaFields,
 } from 'app/providers/StoreProvider';
-import { FC, ReactNode, useEffect } from 'react';
 import { useStore } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 

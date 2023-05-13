@@ -38,6 +38,48 @@ module.exports = {
   ],
   plugins: ['react', 'react-hooks', 'i18next', 'prettier'],
   rules: {
+    'import/order': [
+      'error',
+      {
+        'newlines-between': 'always',
+        pathGroupsExcludedImportTypes: ['react'],
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          'parent',
+          'index',
+          'sibling',
+          'object',
+          'type',
+        ],
+        pathGroups: [
+          {
+            pattern: 'webpack',
+            group: 'builtin',
+            position: 'before',
+          },
+          {
+            pattern: 'react',
+            group: 'builtin',
+            position: 'before',
+          },
+          {
+            pattern: '../**/*.scss',
+            group: 'parent',
+            position: 'after',
+          },
+          {
+            pattern: './**/*.scss',
+            group: 'sibling',
+            position: 'after',
+          },
+        ],
+        alphabetize: {
+          order: 'asc',
+        },
+      },
+    ],
     'import/no-extraneous-dependencies': [
       'error',
       {

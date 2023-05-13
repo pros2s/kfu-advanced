@@ -1,18 +1,19 @@
 import { memo } from 'react';
 
+import { CurrencyToMenu } from 'entities/currencyMenu';
+import { SearchToCurrency } from 'entities/searchCurrency';
 import { useSelector } from 'react-redux';
 import {
   DynamicReducerLoader,
   ReducersList,
 } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
-import { SearchToCurrency } from 'entities/searchCurrency';
-import { CurrencyToMenu } from 'entities/currencyMenu';
-import { CurrencyName } from '../../model/types/Currency';
+
 import {
   getToCurrentCurrency,
   getIsToCurMenu,
 } from '../../model/selectors/getAllToCurrency';
 import { ChoseToCurrencyReducer } from '../../model/slice/ChoseToCurrencySlice';
+import { CurrencyName } from '../../model/types/Currency';
 
 interface ChoseToCurrencyProps {
   currencyList?: CurrencyName[];

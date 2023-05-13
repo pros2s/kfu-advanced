@@ -8,8 +8,9 @@ import { SymbolsReducer } from 'features/choseCurrency';
 import { NavigateOptions, To } from 'react-router-dom';
 import { $api } from 'shared/api/api';
 import { ResentRatesReducer } from 'widgets/RecentRates';
-import { createReducerManager } from './reducerManager';
+
 import { StateSchema } from './StateSchema';
+import { createReducerManager } from './reducerManager';
 
 export function createReduxStore(
   preloadedState?: StateSchema,

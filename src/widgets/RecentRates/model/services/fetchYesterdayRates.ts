@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import dateFormat from 'dateformat';
+
 import { ResentRatesParams } from '../types/ResentRatesSchema';
 
 export const fetchYesterdayRates = createAsyncThunk<

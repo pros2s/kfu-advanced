@@ -3,6 +3,7 @@ import { Themes } from 'app/providers/ThemesProvider';
 import { StoreDecorator } from 'shared/config/storyBook/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storyBook/ThemeDecorator';
 import { CurrencyConverterReducer } from 'widgets/CurrencyConverter/model/slice/CurrencyConverterSlice';
+
 import MainPage from './MainPage';
 
 export default {

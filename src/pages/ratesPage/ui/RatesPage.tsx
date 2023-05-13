@@ -1,8 +1,9 @@
 import { memo, useCallback, useState, useEffect } from 'react';
-import { RecentRates } from 'widgets/RecentRates';
+
 import { AiOutlineArrowUp } from 'react-icons/ai';
-import { Button, ButtonThemes } from 'shared/ui/Button/Button';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Button, ButtonThemes } from 'shared/ui/Button/Button';
+import { RecentRates } from 'widgets/RecentRates';
 
 import cls from './RatesPage.module.scss';
 

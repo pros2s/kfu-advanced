@@ -5,10 +5,9 @@ import {
   Reducer,
   ReducersMapObject,
 } from '@reduxjs/toolkit';
-
 import { AxiosInstance } from 'axios';
-import { ChoseCurrencySchema, SymbolsSchema } from 'features/choseCurrency';
 import { SearchCurrencySchema } from 'entities/searchCurrency';
+import { ChoseCurrencySchema, SymbolsSchema } from 'features/choseCurrency';
 import { NavigateOptions, To } from 'react-router-dom';
 import { CurrencyConverterSchema } from 'widgets/CurrencyConverter';
 import { ResentRatesSchema } from 'widgets/RecentRates';

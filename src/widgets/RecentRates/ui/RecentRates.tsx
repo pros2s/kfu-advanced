@@ -1,4 +1,6 @@
-import { RecentRatesList } from 'features/recentRatesList';
+import { memo, useEffect, useCallback } from 'react';
+
+import { SearchBaseCurrencyActions } from 'entities/searchCurrency/model/slice/SearchBaseCurrencySlice';
 import {
   ChoseBaseCurrency,
   ChoseBaseCurrencyActions,
@@ -6,24 +8,25 @@ import {
   getBaseCurrentCurrency,
   getSymbols,
 } from 'features/choseCurrency';
-import { memo, useEffect, useCallback } from 'react';
+import { RecentRatesList } from 'features/recentRatesList';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Input } from 'shared/ui/Input/Input';
-import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { SearchBaseCurrencyActions } from 'entities/searchCurrency/model/slice/SearchBaseCurrencySlice';
-import { fetchRecentRates } from '../model/services/fetchRecentRates';
+
 import {
   getRecentRates,
   getRecentRatesDate,
   getRecentRatesInputValue,
   getYesterDayRates,
 } from '../model/selectors/getAllRecentRates';
+import { fetchRecentRates } from '../model/services/fetchRecentRates';
+import { fetchYesterdayRates } from '../model/services/fetchYesterdayRates';
 import { ResentRatesActions } from '../model/slice/ResentRatesSlice';
 
 import cls from './RecentRates.module.scss';
-import { fetchYesterdayRates } from '../model/services/fetchYesterdayRates';
+
 
 export const RecentRates = memo(() => {
   const { t } = useTranslation();

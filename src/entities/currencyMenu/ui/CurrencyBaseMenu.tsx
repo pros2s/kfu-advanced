@@ -1,13 +1,14 @@
-import { ChoseBaseCurrencyActions, CurrencyName } from 'features/choseCurrency';
+import { memo, useMemo } from 'react';
+
 import { getSearchBaseCurrencyValue } from 'entities/searchCurrency/model/selectors/getSearchBaseCurrency';
 import { SearchBaseCurrencyActions } from 'entities/searchCurrency/model/slice/SearchBaseCurrencySlice';
-
+import { ChoseBaseCurrencyActions, CurrencyName } from 'features/choseCurrency';
 import Fuse from 'fuse.js';
-import { memo, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Button, ButtonThemes } from 'shared/ui/Button/Button';
+import { v4 } from 'uuid';
 
 import cls from './CurrencyMenu.module.scss';
 
@@ -50,7 +51,7 @@ export const CurrencyBaseMenu = memo(
                 cur.abbr === 'usd' ||
                 cur.abbr === 'gbp',
             })}
-            key={cur.abbr + cur.description}
+            key={v4()}
             onClick={() => setNewCurrency(cur)}
             theme={ButtonThemes.CLEAR}
             tabIndex={0}

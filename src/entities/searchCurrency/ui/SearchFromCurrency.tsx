@@ -1,31 +1,31 @@
+import { memo, useCallback, useMemo } from 'react';
+
+import { SearchToCurrencyActions } from 'entities/searchCurrency/model/slice/SearchToCurrencySlice';
 import {
   ChoseFromCurrencyActions,
   ChoseToCurrencyActions,
   CurrencyName,
 } from 'features/choseCurrency';
-
-import { memo, useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { BsCaretDownFill } from 'react-icons/bs';
 import { useSelector } from 'react-redux';
-
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Button, ButtonSizes, ButtonThemes } from 'shared/ui/Button/Button';
-import { Input } from 'shared/ui/Input/Input';
 import {
   DynamicReducerLoader,
   ReducersList,
 } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
-import { SearchToCurrencyActions } from 'entities/searchCurrency/model/slice/SearchToCurrencySlice';
-import { useTranslation } from 'react-i18next';
-import {
-  SearchFromCurrencyActions,
-  SearchFromCurrencyReducer,
-} from '../model/slice/SearchFromCurrencySlice';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { Button, ButtonSizes, ButtonThemes } from 'shared/ui/Button/Button';
+import { Input } from 'shared/ui/Input/Input';
+
 import {
   getSearchFromCurrencyValue,
   getSearchFromIsFocused,
 } from '../model/selectors/getSearchFromCurrency';
+import {
+  SearchFromCurrencyActions,
+  SearchFromCurrencyReducer,
+} from '../model/slice/SearchFromCurrencySlice';
 
 import cls from './SearchCurrency.module.scss';
 
