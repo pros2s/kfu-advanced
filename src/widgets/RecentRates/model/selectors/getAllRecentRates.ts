@@ -1,6 +1,5 @@
 import { StateSchema } from 'app/providers/StoreProvider';
 
-
 export const getRecentRatesError = (state: StateSchema) =>
   state.recentRates?.errorMessage;
 export const getRecentRatesIsLoading = (state: StateSchema) =>

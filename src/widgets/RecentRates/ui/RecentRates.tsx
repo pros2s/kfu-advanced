@@ -27,7 +27,6 @@ import { ResentRatesActions } from '../model/slice/ResentRatesSlice';
 
 import cls from './RecentRates.module.scss';
 
-
 export const RecentRates = memo(() => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();

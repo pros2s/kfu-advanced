@@ -184,7 +184,7 @@ export const CurrencyConverter = memo(() => {
                   : `${toCurrentCur?.description}s`}
               </span>
             </h1>
-            <p>
+            <div>
               {`1.00 ${fromCurrentCur?.abbr.toUpperCase()} = `}
               <span>
                 {!rate ? (
@@ -194,7 +194,7 @@ export const CurrencyConverter = memo(() => {
                 )}
               </span>
               {`${toCurrentCur?.abbr.toUpperCase()}`}
-            </p>
+            </div>
           </div>
 
           <div>

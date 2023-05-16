@@ -12,11 +12,6 @@
     "prettier:fix": "prettier --write \"**/*.{js,ts,tsx}\"",
     "project:beauty": "npm run \"lint:ts:fix\" & npm run \"lint:scss:fix\" &  npm run \"prettier:fix\"",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
-    "test:loki": "npx loki test",
-    "test:loki:ok": "npx loki approve",
-    "test:loki:json": "node scripts/generate-visual-json-report.js ",
-    "test:loki:html": "reg-cli --from .loki/report.json --report .loki/report.html",
-    "test:loki:report": "npm run test:loki:json & npm run test:loki:html",
     "storybook": "start-storybook -p 6006 -c ./config/storybook"
   },
   "devDependencies": {
@@ -65,7 +60,6 @@
     "html-webpack-plugin": "^5.5.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
-    "loki": "^0.30.3",
     "mini-css-extract-plugin": "^2.5.3",
     "postcss": "^8.4.18",
     "postcss-scss": "^4.0.5",
