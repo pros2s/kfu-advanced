@@ -13,6 +13,7 @@ const MainPage = memo(() => (
       referrerPolicy='no-referrer-when-downgrade'
       title='bank'
     />
+    <a href="http://localhost/site/index.php">Регистрация</a>
   </div>
 ));
 
