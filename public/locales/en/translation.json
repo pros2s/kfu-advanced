@@ -16,5 +16,7 @@
   "rateOfChangePerDay": "Rate of change per day",
   "currencyError": "Currency not found",
   "smallLanguage": "Рус",
-  "goConverterSmall": "To converter"
+  "goConverterSmall": "To converter",
+  "registration": "Registration",
+  "autorization": "Autorization"
 }

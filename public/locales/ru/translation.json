@@ -16,5 +16,7 @@
   "rateOfChangePerDay": "Коэфф. изменения за день",
   "currencyError": "Валюта не найдена",
   "smallLanguage": "Eng",
-  "goConverterSmall": "К конвертеру"
+  "goConverterSmall": "К конвертеру",
+  "registration": "Регистрация",
+  "autorization": "Авторизация"
 }
