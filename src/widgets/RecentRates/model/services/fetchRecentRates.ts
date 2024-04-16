@@ -16,9 +16,7 @@ export const fetchRecentRates = createAsyncThunk<
         throw new Error();
       }
 
-      const response = await extra.api.get(
-        `/latest/currencies/${base}.min.json`,
-      );
+      const response = await extra.api.get(`/currency-api@latest/v1/currencies/${base}.min.json`);
 
       if (!response || !response.data) {
         throw new Error();

@@ -8,7 +8,7 @@ export const fetchSymbols = createAsyncThunk<
   ThunkConfig<string>
 >('choseCurrency/fetchSymbols', async (_, { rejectWithValue, extra }) => {
   try {
-    const response = await extra.api.get('/latest/currencies.min.json');
+    const response = await extra.api.get('/currency-api@latest/v1/currencies.min.json');
 
     if (!response.data) {
       throw new Error();

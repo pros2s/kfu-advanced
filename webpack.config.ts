@@ -18,7 +18,7 @@ export default (env: BuildEnv) => {
   const mode = env.mode || 'development';
   const PORT = env.port || 3000;
   const baseApiUrl =
-    env.baseApiUrl || 'https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1';
+    env.baseApiUrl || 'https://cdn.jsdelivr.net/npm/@fawazahmed0';
 
   const isDev = mode === 'development';
 

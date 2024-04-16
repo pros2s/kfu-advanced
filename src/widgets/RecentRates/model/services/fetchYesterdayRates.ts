@@ -22,7 +22,7 @@ export const fetchYesterdayRates = createAsyncThunk<
       }
 
       const response = await extra.api.get(
-        `/${isoDate}/currencies/${base}.min.json`,
+        `/currency-api@${isoDate}/v1/currencies/${base}.min.json`,
       );
 
       if (!response.data) {

@@ -11,14 +11,14 @@ export const fetchRate = createAsyncThunk<
   async ({ from, to }, { rejectWithValue, extra }) => {
     try {
       const response = await extra.api.get(
-        `/latest/currencies/${from}/${to}.min.json`,
+        `/currency-api@latest/v1/currencies/${from}.min.json`,
       );
 
       if (!response.data) {
         throw new Error();
       }
 
-      return Number(Object.values(response.data)[1]);
+      return response.data[from][to];
     } catch (e) {
       return rejectWithValue('error');
     }
